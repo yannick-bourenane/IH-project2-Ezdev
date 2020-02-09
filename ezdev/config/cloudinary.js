@@ -1,4 +1,3 @@
-
 const cloudinary = require("cloudinary");
 const cloudinaryStorage = require("multer-storage-cloudinary");
 const multer = require("multer");
@@ -11,7 +10,7 @@ cloudinary.config({
 
 const storage = cloudinaryStorage({
     cloudinary,
-    folder: "sneaklove"
+    folder: "ezdev"
     // params below is only needed if uploading media types other than images (video, audio...)
     // params: {
     //     ressource_type: "raw"

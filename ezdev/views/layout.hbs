@@ -7,10 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>EZ DEV</title>
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    {{!-- {{#if needAJAX}} --}}
+    <script type="module" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    {{!-- {{/if}} --}}
 </head>
 
 <body>
     {{>navbar}}
+    {{> flashMessage }}
     {{{body}}}
 </body>
 

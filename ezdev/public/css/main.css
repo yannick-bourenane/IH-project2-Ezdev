@@ -8,7 +8,65 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 /** general */
+/** general */
 body {
     font-family: 'Poppins';
 }
 
+.wrapper {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 15px;
+}
+
+li {
+    list-style: none;
+}
+
+hr {
+    margin: 15px 0;
+}
+
+button {
+    background-color: #092e52;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+
+/* MSG FLASH */
+.msg {
+    max-width: 300px;
+    margin: auto;
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.msg.error {
+    color: #802b31;
+    background: #f8d6da;
+    box-shadow: -0.3px 0.1px 2.4px 0.1px #802b31;
+}
+
+.msg.success {
+    color: #216136;
+    background: #d4edda;
+    box-shadow: -0.3px 0.1px 2.4px 0.1px #216136;
+}

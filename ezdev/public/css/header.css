@@ -1,22 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
-/** general */
-body {
-    font-family: 'Poppins';
-}
-.wrapper {
-    width: 1280px;
-    margin : 0 auto;
-}
-
-a {
-    text-decoration: none;
-}
-
-li {
-    list-style: none;
-}
-
 /** navbar */
 
 nav {
@@ -31,7 +14,7 @@ nav {
     color: white;
 }
 
-#menu a{
+#menu a {
     color: white;
 }
 

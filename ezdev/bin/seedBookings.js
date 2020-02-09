@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 const bookingsList = [{
     id_teacher: '',
-    id_teacher: '',
+    id_student: '',
     message: 'I want to book some sessions in March',
     isAccepted: true,
 }]

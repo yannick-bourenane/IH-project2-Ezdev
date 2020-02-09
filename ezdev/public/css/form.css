@@ -1,0 +1,85 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    min-height: 300px;
+    border-radius: 30px;
+    color: #092e52;
+    padding: 25px;
+    margin: 0 auto;
+}
+
+form a {
+    text-decoration: underline;
+}
+
+form .radios input {
+    margin-right: 10px;
+    position: relative;
+    top: 2px;
+}
+
+form .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .row .input,
+form .row label {
+    width: 48%;
+}
+
+label {
+    cursor: pointer;
+}
+
+input {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 5px;
+    min-height: 40px;
+}
+
+#teacher_inputs {
+    display: none;
+}
+
+#teacher_inputs.show {
+    display: block;
+}
+
+#teacher_inputs #languages {
+    margin: 15px 0 25px;
+    display: grid;
+    text-align: center;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+}
+
+#teacher_inputs #languages .language_logo {
+    cursor: pointer;
+}
+
+#teacher_inputs i {
+    display: inline;
+    font-size: 50px;
+    padding: 10px;
+    margin: 0 auto;
+    color: #888;
+}
+
+#teacher_inputs i.selected {
+    color: #092e52;
+    text-shadow: 2px 2px 3px yellow;
+}

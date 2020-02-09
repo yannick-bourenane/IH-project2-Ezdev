@@ -22,6 +22,12 @@ const userSchema = new Schema({
     phone: {
         type: String
     },
+    city: {
+        type: String
+    },
+    zipcode: {
+        type: String
+    },
     avatar: {
         type: String,
         default: "/img/avatar-default.png"

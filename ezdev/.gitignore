@@ -1,3 +1,5 @@
 node_modules
-
+bin/seedBookings.js
+bin/seedLanguages.js
+bin/seedUsers.js
 .env
