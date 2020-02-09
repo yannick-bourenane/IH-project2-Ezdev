@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 const userSchema = new Schema({
-   firstname: {
-       type: String,
-       required: true
+    firstname: {
+        type: String,
+        required: true
     },
     lastname: {
         type: String,
@@ -30,9 +30,13 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    id_language: {
-        type: Schema.Types.ObjectId,
+    id_languages: {
+        type: [Schema.Types.ObjectId],
         ref: "Language"
+    },
+    id_reviews: {
+        type: [Schema.Types.ObjectId],
+        ref: "Review"
     },
     price: {
         type: String
