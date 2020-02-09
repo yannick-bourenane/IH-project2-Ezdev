@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+/** general */
+body {
+    font-family: 'Poppins';
+}
+.wrapper {
+    width: 1280px;
+    margin : 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/** navbar */
+
+nav {
+    height: 50px;
+    background-color: #092e52;
+}
+
+#logo-ezdev {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+}
+
+#menu a{
+    color: white;
+}
+
+#menu-flex {
+    display: flex;
+    height: 50px;
+}
+
+#menu {
+    display: flex;
+    width: 1200px;
+    justify-content: flex-end;
+}
+
+ul {
+    width: 500px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+#signin {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: white;
+    color: #092e52
+}

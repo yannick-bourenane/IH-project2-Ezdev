@@ -3,4 +3,12 @@
 @import './form.css';
 @import './header.css';
 @import './home.css';
-@import './teachers.css'
+@import './teachers.css';
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+/** general */
+body {
+    font-family: 'Poppins';
+}
+

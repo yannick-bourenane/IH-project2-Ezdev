@@ -1,0 +1,171 @@
+#jumbotron {
+    background-image : url('../img/jumbotron.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 660px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#message h1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 45px;
+}
+
+.search-bar {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input{
+    width: 500px;
+    height: 60px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 16px;
+    text-indent: 10px;
+}
+
+.btn-search {
+    background-color: #092e52;
+    height: 60px;
+    width: 150px;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+
+#marketing {
+    background-color: rgba(9,46,82, 0.5);
+    border-radius: 10px;
+    padding: 150px 150px;
+}
+
+/** best teachers*/
+
+.session-title {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: #092e52
+}
+
+#boxes-teacher {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.box-teacher {
+    display: flex;
+    height: 350px;
+    width: 300px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.teacher-img img {
+    height: 300px;
+}
+
+.info-teacher {
+    display: flex;
+}
+
+#btn-more-teachers {
+    background-color: #092e52;
+    height: 60px;
+    width: 150px;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+
+#button-more {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 40px;
+}
+
+/* session language */
+#all-language {
+    background-color: #F8F8F8;
+}
+
+.boxes-lg {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.box-lg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.name-lg {
+    margin-bottom: 40px;
+}
+
+/* footer */
+
+footer {
+    background-color: #092e52;
+    color: white;
+    display: flex;
+}
+
+footer h4 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.info-ent {
+    margin-top: 40px;
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: column;
+}
+
+#newsletter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-right {
+    display: flex;
+}
+
+#copyright {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid;
+    padding: 20px 0;
+}

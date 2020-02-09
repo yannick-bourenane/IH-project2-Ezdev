@@ -37,7 +37,7 @@ const usersList = [{
     city: 'Paris',
     zipcode: '75000',
     role: 'teacher',
-    id_languages: ['1', '2', '3'],
+    id_languages: ['5e3fe1a6605d429080d6f852', '5e3fe1a6605d429080d6f853', '5e3fe1a6605d429080d6f854', '5e3fe1a6605d429080d6f859', '5e3fe1a6605d429080d6f85a'],
     price: '50€ de l\'heure'
 }, {
     firstname: 'Franck-Olivier',
@@ -48,7 +48,7 @@ const usersList = [{
     city: 'Paris',
     zipcode: '75000',
     role: 'teacher',
-    id_languages: ['4', '5', '6'],
+    id_languages: ['5e3fe1a6605d429080d6f857', '5e3fe1a6605d429080d6f856', '5e3fe1a6605d429080d6f855', '5e3fe1a6605d429080d6f851'],
     price: '300€ la journée'
 }]
 async function pushSeed() {

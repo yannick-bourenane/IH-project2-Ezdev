@@ -1,9 +1,21 @@
 const express = require("express");
 const router = new express.Router();
-// const userModel = require("../../models/User");
+const userModel = require("../../models/User");
+const lgModel = require("../../models/Language");
 
 router.get(['/', '/home'], (req, res) => {
-    res.render("index");
+    userModel
+    .find()
+    .then(teachers => {
+        lgModel.find().then(languages => {
+            res.render("index", {
+                teachers,
+                languages
+            });
+        })
+      
+    })
+    .catch(dbErr => console.error(dbErr));  
 })
 
 module.exports = router;

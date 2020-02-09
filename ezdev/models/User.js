@@ -24,7 +24,7 @@ const userSchema = new Schema({
     },
     avatar: {
         type: String,
-        default: "lala"
+        default: "/img/avatar-default.png"
     },
     role: {
         type: String,
@@ -43,6 +43,6 @@ const userSchema = new Schema({
     }
 });
 
-const userModel = mongoose.model("Sneaker", userSchema);
+const userModel = mongoose.model("User", userSchema);
 
 module.exports = userModel;

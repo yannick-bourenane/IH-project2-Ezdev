@@ -8,7 +8,14 @@ router.get('/teachers', (req, res) => {
 });
 
 router.get('/teacher/:id', (req, res) => {
-    res.render("one_teacher");
+    userModel
+        .findById(req.params.id)
+        .then(dbRes => {
+            res.render("one_teacher", {
+                teacher: dbRes
+            });
+        })
+        .catch(dbErr => console.error(dbErr));  
 });
 
 module.exports = router;
