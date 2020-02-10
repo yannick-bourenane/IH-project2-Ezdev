@@ -89,18 +89,27 @@ router.get("/edit/:id", (req, res, next) => {
                 .then(languages => {
                     res.render('auth/edit_profile', {
                         editUser: editUser,
-                        languages: languages
+                        languages: languages,
+                        js: ['form', 'clickTeacher'],
                     })
                 })
                 .catch(dbErr => next(dbErr))
         })
         .catch(dbErr => next(dbErr))
 })
-router.post("/edit/:id", (req, res, next) => {
+router.post("/edit/:id", uploader.single('avatar'), (req, res, next) => {
+
     const user = req.body;
-    userModel.findByIdAndUpdate(req.params.id, {
-        user
-    })
+    if (!user.email || !user.firstname || !user.lastname || !user.role) {
+        console.log(user.email, user.firstname, user.lastname, user.role)
+        req.flash("error", "Fill all the required fields please.");
+    } else {
+        if (req.file) user.avatar = req.file.secure_url
+        userModel.findByIdAndUpdate(req.params.id, user).then(dbRes => {
+            req.flash("success", "Profile updated !")
+            res.redirect('back')
+        }).catch(dbErr => next(dbErr))
+    }
 });
 router.get("/signout", (req, res) => {
     req.session.destroy(() => {

@@ -10,10 +10,14 @@ avatar.oninput = () => {
 
 
 roleTeacher.oninput = () => {
+    roleTeacher.toggleAttribute('checked')
+    roleStudent.toggleAttribute('checked')
     teacherInputs.classList.add('show');
     teacherInputs.querySelector('input').toggleAttribute('disabled')
 }
 roleStudent.oninput = () => {
+    roleTeacher.toggleAttribute('checked')
+    roleStudent.toggleAttribute('checked')
     teacherInputs.classList.remove('show');
     teacherInputs.querySelector('input').toggleAttribute('disabled')
     languages.forEach(input => {

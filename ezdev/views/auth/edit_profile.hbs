@@ -7,7 +7,7 @@ Logged as {{user.role}} {{user.firstname}} {{user.lastname}}
     document.getElementById('role_teacher').click();
 </script>
 {{/compare}}
-<form method="post" action="edit/:id" class="form" enctype="multipart/form-data">
+<form method="post" action="/auth/edit/{{editUser._id}}" class="form" enctype="multipart/form-data">
     <h1 class="title">Edit profile</h1>
     <div class="radios">
         <label class="radio" for="role_student">Student</label>
