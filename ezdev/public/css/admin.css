@@ -1,0 +1,19 @@
+img {
+    max-width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+table tr th,
+table tr td {
+    border: 1px solid #e5e5e5;
+    padding: 10px 15px;
+}
+
+table img.avatar {
+    width: 75px;
+}

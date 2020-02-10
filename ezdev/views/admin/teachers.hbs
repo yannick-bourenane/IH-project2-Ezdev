@@ -1,1 +1,57 @@
-<h1>List of students</h1>
+<div class="wrapper">
+    {{>admin_nav}}
+    <h1>List of teachers</h1>
+    <table class="table teachers">
+        <thead class="head">
+            <tr>
+                <th>Avatar</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>edit</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody class="body">
+
+            {{#unless teachers}}
+            <tr>
+                <td colspan="8">no teachers found</td>
+            </tr>
+            {{/unless}}
+
+            {{#each teachers}}
+
+            <tr>
+                <td>
+                    <img src="{{this.avatar}}" class="avatar" />
+                </td>
+                <td>
+                    {{this.firstname}}
+                </td>
+                <td>
+                    {{this.lastname}}
+                </td>
+                <td>
+                    {{this.email}}
+                </td>
+                <td>
+                    {{this.city}} ({{this.zipcode}})
+                </td>
+                <td>
+                    {{this.phone}}
+                </td>
+                <td>
+                    <a class="fas fa-pen" href="/auth/edit/{{this._id}}"></a>
+                </td>
+                <td>
+                    <a class="fas fa-times" href="delete/{{this._id}}"></a>
+                </td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+</div>

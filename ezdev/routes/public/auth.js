@@ -82,6 +82,26 @@ router.post('/signin', (req, res, next) => {
         .catch(next);
 })
 
+router.get("/edit/:id", (req, res, next) => {
+    userModel.findById(req.params.id)
+        .then(editUser => {
+            languageModel.find()
+                .then(languages => {
+                    res.render('auth/edit_profile', {
+                        editUser: editUser,
+                        languages: languages
+                    })
+                })
+                .catch(dbErr => next(dbErr))
+        })
+        .catch(dbErr => next(dbErr))
+})
+router.post("/edit/:id", (req, res, next) => {
+    const user = req.body;
+    userModel.findByIdAndUpdate(req.params.id, {
+        user
+    })
+});
 router.get("/signout", (req, res) => {
     req.session.destroy(() => {
         res.redirect("/auth/signin");

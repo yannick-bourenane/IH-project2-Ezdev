@@ -1,6 +1,6 @@
 require("dotenv").config();
 require("./config/mongodb"); // database initial setup
-
+require("./helpers/hbs");
 
 // base dependencies
 const express = require("express");
@@ -91,6 +91,6 @@ const teachers = require("./routes/public/teachers");
 app.use("/", teachers);
 
 const admin = require("./routes/private/admin");
-app.use("/", admin);
+app.use("/admin/", admin);
 
 module.exports = app;

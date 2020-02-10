@@ -18,6 +18,20 @@ awesome, 1 is less thant 10 !!!
 
 */
 
+// Does the array contains value
+hbs.registerHelper("contain", function (arr, value, toReturn) {
+    if (arguments.length < 3) throw new Error("Handlerbars Helper 'contains' needs 3 parameters");
+    let result = "";
+    if (arr.includes(value)) result = toReturn;
+    return result;
+});
+
+hbs.registerHelper("ncontain", function (arr, value, toReturn) {
+    if (arguments.length < 3) throw new Error("Handlerbars Helper 'ncontains' needs 3 parameters");
+    let result = "";
+    if (!arr.includes(value)) result = toReturn;
+    return result;
+});
 hbs.registerHelper("compare", function (lvalue, rvalue, options) {
     if (arguments.length < 3)
         throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
