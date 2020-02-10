@@ -4,7 +4,11 @@
 @import './header.css';
 @import './home.css';
 @import './teachers.css';
+<<<<<<< HEAD
 @import './teacher-info.css';
+=======
+@import './admin.css';
+>>>>>>> 815cd0d457beb897e2cfe9f6519fde78221cec26
 
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 

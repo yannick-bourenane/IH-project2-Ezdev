@@ -1,0 +1,62 @@
+<script type="module" src="/js/form.js"></script>
+{{#if isLoggedIn}}
+Logged as {{user.role}} {{user.firstname}} {{user.lastname}}
+{{/if}}
+{{#compare editUser.role "teacher" operator="===" }}
+<script type="module">
+    document.getElementById('role_teacher').click();
+</script>
+{{/compare}}
+<form method="post" action="/auth/edit/{{editUser._id}}" class="form" enctype="multipart/form-data">
+    <h1 class="title">Edit profile</h1>
+    <div class="radios">
+        <label class="radio" for="role_student">Student</label>
+        <input type="radio" name="role" id="role_student" value="student" checked />
+        <label class="radio" for="role_teacher">Teacher</label>
+        <input type="radio" name="role" id="role_teacher" value="teacher" />
+    </div>
+    <div class="row">
+        <label for="firstname">Firstname</label>
+        <label for="lastname">Lastname</label>
+        <input class="input" name="firstname" id="firstname" type="text" value="{{editUser.firstname}}" required>
+        <input class="input" name="lastname" id="lastname" type="text" value="{{editUser.lastname}}" required>
+    </div>
+    <label for="email">Email</label>
+    <input class="input" name="email" id="email" type="email" value="{{editUser.email}}" required>
+    {{!-- <input class="input" id="password" name="password" type="password" value="{{editUser.password}}" required> --}}
+    <label for="phone">Phone</label>
+    <input class="input" name="phone" id="phone" type="text" value="{{editUser.phone}}">
+    <label for="avatar">Avatar{{#if editUser.avatar}}</label>
+    <div class="avatar_box">
+        <img src="{{editUser.avatar}}" class="avatar" />{{/if}}
+        {{!-- <i id="avatar-icon" class="is-clickable toggle-active fa fa-user fa-lg"></i> --}}
+        {{!-- <input id="input-file" type="file" class="is-hidden" name="avatar"> --}}
+        <input id="input-file" class="input" type="file" name="avatar" value="{{editUser.avatar}}">
+    </div>
+    <div class="row">
+        <label for="city">City</label>
+        <label for="zipcode">Zipcode</label>
+        <input class="input" name="city" id="city" type="text" value="{{editUser.city}}">
+        <input class="input" name="zipcode" id="zipcode" type="text" value="{{editUser.zipcode}}">
+    </div>
+    <div id="teacher_inputs">
+        <label for="price">Price</label>
+        <input class="input" name="price" id="price" type="text" value="{{editUser.price}}" disabled>
+        <label for="id_languages">Languages</label>
+        <div id="languages">
+            {{#each languages}}
+            <div class="language_logo {{#contain ../editUser.id_languages this.id "selected"}}{{/contain}}"
+                title="{{this.name}}">
+                {{{this.logo}}}
+                <input type="hidden" name="id_languages" value="{{this.id}}" id="{{this.name}}"
+                    {{#ncontain ../editUser.id_languages this.id "disabled" }}{{/ncontain}}>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <button class="btn">Submit</button>
+    <hr>
+    <p>
+        Already have an account ? <a class="link" href="signin">please signin !</a>
+    </p>
+</form>
