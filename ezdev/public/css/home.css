@@ -20,7 +20,6 @@
     margin-top: 40px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .search-bar input{
@@ -33,12 +32,14 @@
 }
 
 .btn-search {
-    background-color: #092e52;
+
+    background-color: orange;
     height: 60px;
     width: 150px;
     color: white;
     font-size: 16px;
-    border-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     border: none;
 }
 
@@ -79,42 +80,55 @@
     display: flex;
 }
 
-#btn-more-teachers {
-    background-color: #092e52;
+.btn-more-teachers {
+    background-color: orange;
     height: 60px;
-    width: 150px;
+    width: 230px;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     border-radius: 5px;
     border: none;
+    cursor: pointer;
 }
 
 #button-more {
     margin-top: 40px;
-    display: flex;
-    justify-content: flex-end;
     margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
 }
 
 /* session language */
 #all-language {
     background-color: #F8F8F8;
+    display: flex;
 }
 
 .boxes-lg {
+    margin-top: 60px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .box-lg {
+    width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.box-lg:hover {
+    color: orange;
+}
+
 .name-lg {
     margin-bottom: 40px;
+}
+
+.img-lg i {
+    font-size: 100px;
+    margin-bottom: 20px;
 }
 
 /* footer */

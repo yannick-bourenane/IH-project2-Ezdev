@@ -1,5 +1,19 @@
 const userModel = require('../models/User')
 const mongoose = require('mongoose')
+const languageModel = require("../models/Language.js");
+
+
+
+
+languageModel.create().then(languages =>{
+
+    //Creer un tableau d'id.
+
+
+    //Creer les utilitaster(
+    // userModel.create().then)
+
+})
 
 const usersList = [{
     firstname: 'super',

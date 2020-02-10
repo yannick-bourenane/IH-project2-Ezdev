@@ -38,9 +38,7 @@
         </div>
 
         <div id="button-more">
-            <form action="/teachers">
-                <button class="btn-search">MORE TEACHERS</button>
-            </form>
+            <a href="/teachers"><button class="btn-more-teachers">MORE TEACHERS</button></a>
         </div>
     </div>
 </section>
@@ -54,7 +52,7 @@
             {{#each languages}}
             <div class="box-lg">
                 <div class="img-lg">
-                    <i class={{this.logo}}></i>
+                    {{{this.logo}}}
                 </div>
                 <div class="name-lg">
                     <h4>{{this.name}}</h4>

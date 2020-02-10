@@ -1,1 +1,48 @@
-<h1>One teacher</h1>
+<div class="wrapper">
+    <div class="session-title title-info">
+        <h1>Teacher informations</h1>
+    </div>
+    <div class="all-info">
+        <div class="section-left-teacher">
+            <div id="info-img-teacher">
+                <img src="{{teacher.avatar}}" alt="avatar">
+            </div>
+        </div>
+        <div class="section-right-teacher">
+            <div id="info-name-teacher">
+                <h2>{{teacher.firstname}} {{teacher.lastname}}</h2>
+            </div>
+
+            <div id="info-desc-teacher">
+                <p>Je suis une description</p>
+            </div>
+
+            <h2>What he teaches</h2>
+            <div class="info-languages-teacher">  
+                <ul>
+                    {{#each teacher.id_languages}}
+                    <li>
+                        <div id="info-logo-lg">
+                            {{{this.logo}}} 
+                        </div>              
+                        {{this.name}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="info-reviews-teacher">
+                <span>5 étoiles</span>
+                <div class="link-feedback-teacher">
+                    <span>You can find more feedbacks of this teacher <a href="/">here</a></span>
+                </div>
+            </div>
+
+            <div class="contact-teacher">
+                <button id="btn-contact-teacher">CONTACT THE TEACHER</button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    {{> more_teachers this}}
+</div>    
+

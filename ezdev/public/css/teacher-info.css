@@ -1,0 +1,94 @@
+#info-img-teacher img {
+    height: 300px;
+}
+
+#info-name-teacher {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#info-desc-teacher p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.all-info {
+    display: flex;
+}
+
+.title-info{
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.link-feedback-teacher {
+    margin-top:20px;
+    margin-bottom: 40px
+}
+
+.link-feedback-teacher a {
+    color: orange;
+    font-weight: bold
+}
+
+.section-right-teacher {
+    margin-left: 200px;
+}
+
+#btn-contact-teacher {
+    background-color: #092e52;
+    color: white;
+    padding: 20px 60px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.info-languages-teacher ul li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.link-feedback-teacher {
+    font-size: 18px;
+}
+
+.info-languages-teacher h2 {
+    display: block;
+    width: 100%
+}
+
+#info-logo-lg i {
+    font-size: 60px;
+    color: orange;
+}
+
+hr {
+   border-top:1px solid orange
+}
+
+/**more teachers */
+.all-boxes-same {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+.box-same-teacher {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    width: 260px;
+    height: 300px;
+    box-shadow: 1px 1px;
+}
+
+
+.box-img-same img{
+    height: 250px;
+    width: 250px
+}

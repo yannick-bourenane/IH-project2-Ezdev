@@ -36,15 +36,18 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    id_languages: {
-        type: [Schema.Types.ObjectId],
+    id_languages: [{
+        type: Schema.Types.ObjectId,
         ref: "Language"
-    },
-    id_reviews: {
-        type: [Schema.Types.ObjectId],
+    }],
+    id_reviews: [{
+        type: Schema.Types.ObjectId,
         ref: "Review"
-    },
+    }],
     price: {
+        type: String
+    },
+    description: {
         type: String
     }
 });
