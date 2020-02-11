@@ -74,21 +74,23 @@ hr {
 .all-boxes-same {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 60px;
+    margin-top: 30px;
 }
-.box-same-teacher {
+
+.box-img-same img {
+    height: 300px;
+}
+
+.box-img-same {
+    width: 300px
+}
+
+.info-teacher-same {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border: 1px solid black;
-    width: 260px;
-    height: 300px;
-    box-shadow: 1px 1px;
 }
 
-
-.box-img-same img{
-    height: 250px;
-    width: 250px
+.box-name-same {
+    display: flex;
+    justify-content: center;
 }

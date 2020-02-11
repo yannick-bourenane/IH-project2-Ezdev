@@ -5,7 +5,7 @@ const lgModel = require("../../models/Language");
 
 router.get(['/', '/home'], (req, res) => {
     userModel
-    .find().limit(4)
+    .find({role: {$eq:"teacher"}}).limit(4)
     .then(teachers => {
         lgModel.find().then(languages => {
             res.render("index", {
