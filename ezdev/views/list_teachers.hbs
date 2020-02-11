@@ -1,1 +1,32 @@
-{{>more-teachers}}
+<section id="page_teachers" class="wrapper">
+    <aside id="filters">
+        <div class="filter_box">
+            <h3>Languages</h3>
+            <ul id="languages">
+                {{#each languages}}
+                <li class="language_list_item" data-language-id="{{this._id}}">
+                    <input id="input_{{this._id}}" type="hidden" data-tag-id="{{this._id}}" disabled />
+                    <label for="input_{{this._id}}">{{{this.logo}}}</label>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="filter_box">
+            <h3>Price</h3>
+            <div>&lt; <span id="price_output">{{maxPrice}}</span>€ <span class="grey">/h</span>
+            </div>
+            <input class="range" value="{{maxPrice}}" type="range" min="{{minPrice}}" max="{{maxPrice}}" step="1">
+        </div>
+        <div class="filter_box">
+            <h3>Reviews</h3>
+            <div id="review_filter">
+                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                    class="fa fa-star"></i><i class="fa fa-star"></i>
+            </div>
+        </div>
+    </aside>
+    <div id="teachers_list">
+        <h2>Teachers list</h2>
+        {{> more_teachers this}}
+    </div>
+</section>

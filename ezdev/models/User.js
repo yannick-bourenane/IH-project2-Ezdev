@@ -45,7 +45,7 @@ const userSchema = new Schema({
         ref: "Review"
     }],
     price: {
-        type: String
+        type: Number
     },
     description: {
         type: String

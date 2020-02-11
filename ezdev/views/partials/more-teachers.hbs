@@ -1,34 +1,32 @@
-<div class="session-title">
-    <h2>Other teachers</h2>
-</div>
-
-<div class="all-boxes-same">
+<div class="all-boxes-same" id="teachers_container">
     {{#each fullteachers}}
-    <a href="/teacher/{{this._id}}"> <div class="box-same-teacher">
-        <div class="box-img-same">
-            <img src="{{this.avatar}}" alt="Picture of a teacher">
-        </div>
+    <a href="/teacher/{{this._id}}">
+        <div class="box-same-teacher">
+            <div class="box-img-same">
+                <img src="{{this.avatar}}" alt="Picture of a teacher">
+            </div>
 
-        <div class="info-teacher-same">
-            <div class="box-name-same">
-                <h3>{{this.firstname}} {{this.lastname}}</h3>
-            </div>
-            
-            <div class="box-rate-same">
-                {{this.rate}}
-            </div>
-            <div class="box-lg-same">
-                <ul>
-                    {{#each this.id_languages}}
-                    <li>
-                        <div id="box-logo-same">
-                            {{{this.logo}}} 
-                        </div>
-                    </li>
-                    {{/each}}
-                </ul>
+            <div class="info-teacher-same">
+                <div class="box-name-same">
+                    <h3>{{this.firstname}} {{this.lastname}}</h3>
+                </div>
+
+                <div class="box-rate-same">
+                    {{this.rate}}
+                </div>
+                <div class="box-lg-same">
+                    <ul>
+                        {{#each this.id_languages}}
+                        <li>
+                            <div id="box-logo-same" title="{{this.name}}">
+                                {{{this.logo}}}
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
             </div>
         </div>
-    </div></a>
+    </a>
     {{/each}}
 </div>

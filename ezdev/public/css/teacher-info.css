@@ -75,13 +75,17 @@ hr {
     display: flex;
     flex-wrap: wrap;
     margin-top: 30px;
+    justify-content: space-between;
 }
+
+.all-boxes-same>a {}
 
 .box-same-teacher {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid black;
+    justify-content: space-between;
+    flex-wrap: wrap;
     width: 260px;
 }
 
@@ -89,9 +93,12 @@ hr {
     width: 300px
 }
 
-.info-teacher-same {
+/* .info-teacher-same {
     display: flex;
     flex-direction: column;
+} */
+.info-teacher-same {
+    width: 100%;
 }
 
 .box-img-same img {
@@ -109,4 +116,23 @@ hr {
 
 .box-name-same h3 {
     margin-bottom: 0;
+}
+
+.box-lg-same {
+    margin-top: 25px;
+    width: 100%;
+}
+
+.box-lg-same ul {
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-start;
+    color: orange;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.box-lg-same ul li {
+    padding: 0 10px;
+    width: 20%;
 }

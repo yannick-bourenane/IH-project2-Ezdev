@@ -33,8 +33,8 @@
         <input class="input" name="zipcode" id="zipcode" type="text" value="75000">
     </div>
     <div id="teacher_inputs">
-        <label for="price">Price</label>
-        <input class="input" name="price" id="price" type="text" value="50€ / h" disabled>
+        <label for="price">Price (€/h)</label>
+        <input class="input" name="price" id="price" type="number" value="" placeholder="hourly rate" disabled>
         <label for="id_languages">Languages</label>
         <div id="languages">
             {{#each languages}}

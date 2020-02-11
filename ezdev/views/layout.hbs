@@ -8,9 +8,7 @@
     <title>EZ DEV</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    {{!-- {{#if needAJAX}} --}}
-    <script type="module" src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    {{!-- {{/if}} --}}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     {{#each js}}
     <script type="module" src="/js/{{this}}.js"></script>
     {{/each}}

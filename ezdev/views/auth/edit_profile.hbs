@@ -36,8 +36,8 @@
         <input class="input" name="zipcode" id="zipcode" type="text" value="{{editUser.zipcode}}">
     </div>
     <div id="teacher_inputs">
-        <label for="price">Price</label>
-        <input class="input" name="price" id="price" type="text" value="{{editUser.price}}" disabled>
+        <label for="price">Price (€/h)</label>
+        <input class="input" name="price" id="price" type="number" value="{{editUser.price}}" disabled>
         <label for="id_languages">Languages</label>
         <div id="languages">
             {{#each languages}}
