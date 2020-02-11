@@ -8,10 +8,11 @@ const uploader = require("../../config/cloudinary")
 router.get('/signin', (req, res) => {
     res.render("auth/signin");
 })
-router.get('/signup', (req, res) => {
+router.get('/signup', (req, res, next) => {
     languageModel.find().then(languages => {
         res.render("auth/signup", {
-            languages
+            languages: languages,
+            js: ['form']
         })
     }).catch(dbErr => next(dbErr))
 })
@@ -90,7 +91,7 @@ router.get("/edit/:id", (req, res, next) => {
                     res.render('auth/edit_profile', {
                         editUser: editUser,
                         languages: languages,
-                        js: ['form', 'clickTeacher'],
+                        js: ['form'],
                     })
                 })
                 .catch(dbErr => next(dbErr))

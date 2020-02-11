@@ -29,7 +29,11 @@ nav {
     justify-content: flex-end;
 }
 
-ul {
+header nav {
+    margin-bottom: 15px;
+}
+
+header nav ul {
     width: 500px;
     justify-content: space-between;
     display: flex;
@@ -44,4 +48,8 @@ ul {
     height: 50px;
     background-color: white;
     color: #092e52
+}
+
+#menu .fa-user-circle {
+    margin-right: 5px;
 }

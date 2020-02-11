@@ -1,4 +1,4 @@
-form {
+form.form {
     display: flex;
     flex-direction: column;
     width: 500px;
@@ -9,56 +9,56 @@ form {
     margin: 0 auto;
 }
 
-form a {
+form.form a {
     text-decoration: underline;
 }
 
-form .radios input {
+form.form .radios input {
     margin-right: 10px;
     position: relative;
     top: 2px;
 }
 
-form .row {
+form.form .row {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-form .row .input,
-form .row label {
+form.form .row .input,
+form.form .row label {
     width: 48%;
 }
 
-form label {
+form.form label {
     cursor: pointer;
 }
 
-form input {
+form.form input {
     margin-bottom: 15px;
 }
 
-form input[type="text"],
-form input[type="email"],
-form input[type="password"],
-form input[type="number"],
-form input[type="tel"],
-form textarea {
+form.form input[type="text"],
+form.form input[type="email"],
+form.form input[type="password"],
+form.form input[type="number"],
+form.form input[type="tel"],
+form.form textarea {
     width: 100%;
     padding: 5px;
     min-height: 40px;
 }
 
-form #teacher_inputs {
+form.form #teacher_inputs {
     display: none;
 }
 
-form #teacher_inputs.show {
+form.form #teacher_inputs.show {
     display: block;
 }
 
-form #teacher_inputs #languages {
+form.form #teacher_inputs #languages {
     margin: 15px 0 25px;
     display: grid;
     text-align: center;
@@ -67,11 +67,11 @@ form #teacher_inputs #languages {
     grid-row-gap: 15px;
 }
 
-form #teacher_inputs #languages .language_logo {
+form.form #teacher_inputs #languages .language_logo {
     cursor: pointer;
 }
 
-form #teacher_inputs i {
+form.form #teacher_inputs i {
     display: inline;
     font-size: 50px;
     padding: 10px;
@@ -79,23 +79,27 @@ form #teacher_inputs i {
     color: #888;
 }
 
-form #teacher_inputs .selected i {
-    color: #092e52;
-    text-shadow: 2px 2px 3px yellow;
+form.form #teacher_inputs .language_logo:hover i {
+    color: orange;
 }
 
-form .avatar_box {
+form.form #teacher_inputs .selected i {
+    color: orange;
+    text-shadow: 1px 1px 1px #666;
+}
+
+form.form .avatar_box {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
 }
 
-form .avatar {
+form.form .avatar {
     width: 50px;
     margin-right: 15px;
 }
 
-form #input-file {
+form.form #input-file {
     width: auto;
     margin-bottom: 0;
 }

@@ -12,9 +12,17 @@
                     <a href="#">
                         <li>LEARN AN IT LANGUAGE</li>
                     </a>
+                    {{#unless isLoggedIn}}
                     <a href="/auth/signin">
                         <li id="signin">SIGN IN</li>
                     </a>
+                    {{/unless}}
+                    {{#if isLoggedIn}}
+                    <a href="/auth/edit/{{user._id}}" title="Edit profile">
+                        <i class="fa fa-user-circle"></i>{{user.firstname}} {{user.lastname}}
+                    </a>
+                    <a href="/auth/signout" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+                    {{/if}}
                 </ul>
             </div>
         </div>
