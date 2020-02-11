@@ -77,10 +77,14 @@ router.get("/teacher/reviews/:id", (req, res) => {
         .findById(req.params.id)
         .populate("id_reviews")
         .then(dbRes => {
-            console.log("ici", dbRes);
-            res.render("partials/review", {
-                review: dbRes
-            });
+            reviewModel.find()
+            .then(dbRes2 => {
+                res.render("partials/review", {
+                    teacher: dbRes,
+                    review: dbRes2
+                });
+            })
+            .catch(dbErr => console.log(dbErr));
         })
         .catch(dbErr => console.error(dbErr));
 });

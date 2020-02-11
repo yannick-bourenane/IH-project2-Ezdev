@@ -1,1 +1,21 @@
-<h1>Reviews</h1>
+<div class="wrapper">
+    <div class="review-title">
+        <h1>Reviews</h1>
+    </div>
+    <div class="name-review">
+        {{teacher.firstname}} {{teacher.lastname}}
+    </div>
+
+    <div class="boxes-review">
+        {{#each teacher.id_reviews}}
+        <div class="box-review">
+            <div class="box-message-review">
+                <p>{{this.message}}</p>
+            </div>
+            <div class="box-rate-review">
+                <span>{{this.rate}}</span>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
