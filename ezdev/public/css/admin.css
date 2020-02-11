@@ -17,3 +17,24 @@ table tr td {
 table img.avatar {
     width: 75px;
 }
+
+#admin_menu li {
+    display: inline-block;
+    padding-right: 5px;
+    margin-right: 5px;
+    border-right: 1px solid #000;
+}
+
+#admin_menu li:last-of-type {
+    border: none;
+}
+
+#admin_menu li a:hover {
+    color: orange;
+}
+
+#admin_menu {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+}

@@ -1,7 +1,3 @@
-<script type="module" src="/js/form.js"></script>
-{{#if isLoggedIn}}
-Logged as {{user.role}} {{user.firstname}} {{user.lastname}}
-{{/if}}
 {{#compare editUser.role "teacher" operator="===" }}
 <script type="module">
     document.getElementById('role_teacher').click();

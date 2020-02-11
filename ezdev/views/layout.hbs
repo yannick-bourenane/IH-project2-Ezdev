@@ -12,10 +12,15 @@
     <script type="module" src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module" src="/public/js/reviews.js"></script>
     {{!-- {{/if}} --}}
+    {{#each js}}
+    <script type="module" src="/js/{{this}}.js"></script>
+    {{/each}}
 </head>
 
 <body>
-    {{>navbar}}
+    <header>
+        {{>navbar}}
+    </header>
     {{> flashMessage }}
     {{{body}}}
 </body>

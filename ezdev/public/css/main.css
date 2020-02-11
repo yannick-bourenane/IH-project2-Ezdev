@@ -9,8 +9,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
-/** general */
-/** general */
+/* general */
 body {
     font-family: 'Poppins';
 }
@@ -49,6 +48,7 @@ button {
     font-size: 16px;
     border-radius: 5px;
     border: none;
+    cursor: pointer;
 }
 
 /* MSG FLASH */

@@ -16,13 +16,13 @@
     display: flex;
 }
 
-.title-info{
+.title-info {
     margin-top: 50px;
     margin-bottom: 40px;
 }
 
 .link-feedback-teacher {
-    margin-top:20px;
+    margin-top: 20px;
     margin-bottom: 40px
 }
 
@@ -43,7 +43,7 @@
     cursor: pointer;
 }
 
-.info-languages-teacher ul li{
+.info-languages-teacher ul li {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,7 +67,7 @@
 }
 
 hr {
-   border-top:1px solid orange
+    border-top: 1px solid orange
 }
 
 /**more teachers */
@@ -77,8 +77,12 @@ hr {
     margin-top: 30px;
 }
 
-.box-img-same img {
-    height: 300px;
+.box-same-teacher {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    width: 260px;
 }
 
 .box-img-same {
@@ -90,7 +94,19 @@ hr {
     flex-direction: column;
 }
 
+.box-img-same img {
+    height: 300px;
+    /*     width: 250px */
+}
+
 .box-name-same {
+    margin-top: -50px;
+    background-color: white;
+    padding: 0 10px;
     display: flex;
     justify-content: center;
+}
+
+.box-name-same h3 {
+    margin-bottom: 0;
 }

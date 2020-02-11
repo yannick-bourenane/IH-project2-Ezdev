@@ -1,5 +1,6 @@
 #jumbotron {
-    background-image : url('../img/jumbotron.jpg');
+    margin-top: -15px;
+    background-image: url('../img/jumbotron.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 660px;
@@ -22,11 +23,11 @@
     justify-content: center;
 }
 
-.search-bar input{
+.search-bar input {
     width: 500px;
     height: 60px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border: none;
+    border-radius: 5px;
     font-size: 16px;
     text-indent: 10px;
 }
@@ -44,7 +45,7 @@
 }
 
 #marketing {
-    background-color: rgba(9,46,82, 0.5);
+    background-color: rgba(9, 46, 82, 0.5);
     border-radius: 10px;
     padding: 150px 150px;
 }
@@ -72,8 +73,18 @@
     flex-direction: column;
 }
 
-.teacher-img img {
+.teacher-img,
+.box-same-teacher {
+    overflow: hidden;
+}
+
+.teacher-img img,
+.box-img-same img {
+    width: auto;
     height: 300px;
+    max-width: initial;
+    margin: 0 auto;
+    display: block;
 }
 
 .info-teacher {
@@ -131,55 +142,37 @@
     margin-bottom: 20px;
 }
 
-/* footer */
-
-footer {
-    background-color: #092e52;
-    color: white;
-    display: flex;
+/* FORM SEARCH */
+#languages_list {
+    display: none;
+    width: 500px;
+    border-radius: 0 0 5px 5px;
+    background-color: #FFF;
+    padding: 5px;
+    margin-top: -3px;
+    position: absolute;
 }
 
-footer h4 {
-    font-size: 24px;
-    font-weight: bold;
+#languages_list.show {
+    display: block;
 }
 
-.info-ent {
-    margin-top: 40px;
-    display: flex;
-    margin-bottom: 40px;
+#languages_list .language i {
+    width: 25px;
 }
 
-.footer-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#languages_list .language {
+    font-size: 18px;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 3px 0;
+    cursor: pointer;
+    text-transform: capitalize;
 }
 
-.status {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#languages_list .language:last-of-type {
+    border-bottom: 0;
 }
 
-footer ul {
-    display: flex;
-    flex-direction: column;
-}
-
-#newsletter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.footer-right {
-    display: flex;
-}
-
-#copyright {
-    display: flex;
-    justify-content: center;
-    border-top: 1px solid;
-    padding: 20px 0;
+#languages_list .language:hover {
+    color: orange;
 }

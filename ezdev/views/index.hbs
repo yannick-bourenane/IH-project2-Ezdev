@@ -1,13 +1,21 @@
+<script type="module" src="/js/index.js"></script>
 <div id="jumbotron">
     <div class="wrapper jumbo">
         <div id="marketing">
             <div id="message">
                 <h1>FIND YOUR TEACHER AND START LEARNING</h1>
             </div>
-
             <div class="search-bar">
-                <input type="text" name="language" placeholder="React, PHP, SQL, Python...">
-                <button class="btn-search">SEARCH</button>
+                <form method="get" action="/teachers" id="search_form">
+                    <input autocomplete="off" id="search_language" type="text" name="language"
+                        placeholder="React, PHP, SQL, Python...">
+                    <button id="btn_language" class="btn-search">SEARCH</button>
+                    <div id="languages_list">
+                        {{#each languages}}
+                        <div class="language">{{{this.logo}}} <span class="lang_name">{{this.name}}</span></div>
+                        {{/each}}
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -21,19 +29,21 @@
 
         <div id="boxes-teacher">
             {{#each teachers}}
-            <a href="/teacher/{{this._id}}"> <div class="box-teacher">
-                <div class="teacher-img">
-                    <img src="{{this.avatar}}" alt="best teachers">
-                </div>
-                <div class="info-teacher">
-                    <div class="teacher-name">
-                        <span>{{this.firstname}}</span>
+            <a href="/teacher/{{this._id}}">
+                <div class="box-teacher">
+                    <div class="teacher-img">
+                        <img src="{{this.avatar}}" alt="best teachers">
                     </div>
-                    <div class="teacher-rate">
-                        <span>5 étoiles</span>
+                    <div class="info-teacher">
+                        <div class="teacher-name">
+                            <span>{{this.firstname}}</span>
+                        </div>
+                        <div class="teacher-rate">
+                            <span>5 étoiles</span>
+                        </div>
                     </div>
                 </div>
-            </div></a>
+            </a>
             {{/each}}
         </div>
 
