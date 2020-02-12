@@ -78,14 +78,48 @@ router.get("/teacher/reviews/:id", (req, res) => {
         .populate("id_reviews")
         .then(dbRes => {
             reviewModel.find()
-                .then(dbRes2 => {
-                    res.render("review", {
-                        teacher: dbRes,
-                        review: dbRes2,
-                        js: ['review']
-                    });
-                })
-                .catch(dbErr => console.log(dbErr));
+            .then(dbRes2 => {
+                res.render("review", {
+                    teacher: dbRes,
+                    review: dbRes2,
+                    js: ['review']
+                });
+            })
+            .catch(dbErr => console.log(dbErr));
         })
         .catch(dbErr => console.error(dbErr));
 });
+
+router.post("/teacher/reviews/:id", (req, res, next) => {
+    const {rate, message} = req.body
+    reviewModel.create({
+        rate,
+        message
+    })
+    .then(review => {
+        userModel
+            .findByIdAndUpdate(req.params.id, {"$push" : {
+                "id_reviews": review._id
+            }})
+            .then(teacher => {
+                const arr = [];
+                teacher.id_reviews.forEach(review => {
+                    arr.push(review.rate)
+                })
+                let arrLength = arr.length
+                let totalRate = arr.reduce((acc, cValue) => acc += cValue, 0);
+                let averageRate = totalRate / arrLength;
+                userModel
+                    .findByIdAndUpdate(req.params.id, {
+                        averageRate: averageRate
+                    })
+                    .then(dbRes => {
+                        res.redirect("back")
+                    })
+                    .catch(dbErr => next(dbErr)) 
+            })
+            .catch(dbErr => next(dbErr))
+    })
+    .catch(dbErr => next(dbErr))
+    
+})
