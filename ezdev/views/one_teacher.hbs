@@ -12,9 +12,15 @@
             <div id="info-name-teacher">
                 <h2>{{teacher.firstname}} {{teacher.lastname}}</h2>
             </div>
+            <div class="info-reviews-teacher">
+                {{> average_review}} <a href="/teacher/reviews/{{teacher._id}}">All reviews
+                    ({{teacher.id_reviews.length}})</a>
+                <div class="link-feedback-teacher">
 
+                </div>
+            </div>
             <div id="info-desc-teacher">
-                <p>Je suis une description</p>
+                <p>{{teacher.description}}</p>
             </div>
 
             <h2>What he teaches</h2>
@@ -29,13 +35,6 @@
                     </li>
                     {{/each}}
                 </ul>
-            </div>
-            <div class="info-reviews-teacher">
-                <span>5 étoiles</span>
-                <div class="link-feedback-teacher">
-                    <span>You can find more feedbacks of this teacher <a
-                            href="/teacher/reviews/{{teacher._id}}">here</a></span>
-                </div>
             </div>
 
             <div class="contact-teacher">

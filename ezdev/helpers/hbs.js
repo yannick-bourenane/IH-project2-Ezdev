@@ -18,6 +18,13 @@ awesome, 1 is less thant 10 !!!
 
 */
 
+hbs.registerHelper('forloop', function (n, block) {
+    var accum = '';
+    for (var i = 0; i < n; ++i)
+        accum += block.fn(i);
+    return accum;
+});
+
 // Does the array contains value
 hbs.registerHelper("contain", function (arr, value, toReturn) {
     if (arguments.length < 3) throw new Error("Handlerbars Helper 'contains' needs 3 parameters");

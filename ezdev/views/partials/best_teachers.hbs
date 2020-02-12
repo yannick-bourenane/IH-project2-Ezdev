@@ -1,0 +1,17 @@
+<div id="boxes-teacher">
+    {{#each teachers}}
+    <a href="/teacher/{{this._id}}">
+        <div class="box-teacher">
+            <div class="teacher-img">
+                <img src="{{this.avatar}}" alt="best teachers">
+            </div>
+            <div class="info-teacher">
+                <div class="teacher-name">
+                    <span>{{this.firstname}}</span>
+                </div>
+                {{> average_review_each}}
+            </div>
+        </div>
+    </a>
+    {{/each}}
+</div>

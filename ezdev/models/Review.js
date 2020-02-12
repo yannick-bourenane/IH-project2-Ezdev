@@ -12,11 +12,6 @@ const reviewSchema = new Schema({
         type: String,
         maxlength: 120
     },
-    averageRate: {
-        type: Number,
-        min: 0,
-        max: 5
-    },
 
 });
 

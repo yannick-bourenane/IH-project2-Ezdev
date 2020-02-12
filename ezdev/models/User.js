@@ -49,7 +49,12 @@ const userSchema = new Schema({
     },
     description: {
         type: String
-    }
+    },
+    averageRate: {
+        type: Number,
+        min: 0,
+        max: 5
+    },
 });
 
 const userModel = mongoose.model("User", userSchema);

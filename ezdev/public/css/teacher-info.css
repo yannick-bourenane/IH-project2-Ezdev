@@ -138,3 +138,19 @@ hr {
     padding: 0 10px;
     width: 20%;
 }
+
+.info-reviews-teacher a {
+    color: var(--main-color)
+}
+
+.section-right-teacher .box-rate-review {
+    font-size: 25px;
+}
+
+.section-right-teacher h2 {
+    margin-bottom: 0;
+}
+
+.info-reviews-teacher a:hover {
+    color: var(--second-color)
+}

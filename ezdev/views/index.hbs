@@ -27,27 +27,7 @@
             <h2>Our best teachers</h2>
         </div>
 
-        <div id="boxes-teacher">
-            {{#each teachers}}
-            <a href="/teacher/{{this._id}}">
-                <div class="box-teacher">
-                    <div class="teacher-img">
-                        <img src="{{this.avatar}}" alt="best teachers">
-                    </div>
-                    <div class="info-teacher">
-                        <div class="teacher-name">
-                            <span>{{this.firstname}}</span>
-                        </div>
-                        {{#each teacher.id_review}}
-                        <div class="teacher-rate">
-                            <span class="rate">{{this.rate}}</span>
-                        </div>
-                        {{/each}}
-                    </div>
-                </div>
-            </a>
-            {{/each}}
-        </div>
+        {{> best_teachers}}
 
         <div id="button-more">
             <a href="/teachers"><button class="btn-more-teachers">MORE TEACHERS</button></a>

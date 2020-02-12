@@ -1,0 +1,31 @@
+<div class="wrapper">
+
+    <form action="/teacher/reviews/{{teacher._id}}" method="post" id="form_review" class="form">
+        <div class="review-title">
+            <h1>Reviews</h1>
+            <h2>{{teacher.firstname}} {{teacher.lastname}}</h2>
+        </div>
+        <div id="teacher_info">
+            <img src="{{teacher.avatar}}" />
+            {{> review}}
+        </div>
+        <div class="section-add-review">
+            <div id="rate-review">
+                <h2>Give the teacher a rate</h2>
+                <input type="hidden" name="rate" id="rate-teacher" value="">
+                <div class="rating star">
+                    <i data-type-rate="1" class="fas fa-star"></i><i data-type-rate="2" class="fas fa-star"></i><i
+                        data-type-rate="3" class="fas fa-star"></i><i data-type-rate="4" class="fas fa-star"></i><i
+                        data-type-rate="5" class="fas fa-star"></i>
+                </div>
+            </div>
+            <div id="message-review">
+                <textarea name="message" id="message" cols="30" rows="6"
+                    placeholder="Type your feedback here"></textarea>
+            </div>
+            <div id="btn-update-review">
+                <button id="btn-review" type="submit">SEND A FEEDBACK</button>
+            </div>
+        </div>
+    </form>
+</div>

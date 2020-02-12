@@ -1,16 +1,103 @@
-.star{
-    color:lightgrey;
-}
-
-.star.star-selected {
-    color: orange;
-}
-
-.star i:hover {
-    color: orange;
-    cursor: pointer
+.star {
+    color: lightgrey;
 }
 
 .star i {
     color: inherit;
+    display: inline-block;
+}
+
+.star .star-selected,
+.star-selected i {
+    color: orange;
+}
+
+#rate-review .rating.star {
+    font-size: 30px;
+}
+
+#rate-review h2 {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+#rate-review i {
+    padding: 0 1.9px;
+}
+
+#rate-review .rating.star {
+    display: inline-block;
+}
+
+#rate-review .star:hover i {
+    cursor: pointer;
+    color: orange;
+}
+
+#rate-review i:hover~i {
+    color: lightgrey !important;
+    cursor: pointer
+}
+
+
+.rating.star {
+    position: relative;
+}
+
+.rating.star .grey {
+    position: absolute;
+    top: 0;
+    z-index: 20;
+}
+
+.rating.star .yellow {
+    position: relative;
+    z-index: 50;
+}
+
+#teacher_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+#teacher_info img {
+    width: 150px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.boxes-review {
+    flex: 1;
+    background-color: var(--main-color);
+    border-radius: 5px;
+    padding: 15px
+}
+
+.box-review {
+    background-color: #FFF;
+    float: left;
+    padding: 10px;
+    border-radius: 5px;
+    min-width: 49%;
+    margin-bottom: 15px;
+    clear: both;
+}
+
+.box-review:nth-of-type(odd) {
+    float: right;
+    border-bottom-right-radius: 0;
+}
+
+.box-review:nth-of-type(even) {
+    border-bottom-left-radius: 0;
+}
+
+#form_review {
+    width: 900px;
+}
+
+.clear {
+    clear: both;
 }

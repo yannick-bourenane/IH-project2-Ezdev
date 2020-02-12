@@ -1,0 +1,25 @@
+<div class="boxes-review">
+    {{#each teacher.id_reviews }}
+    <div class="box-review">
+        <div class="box-message-review">
+            <p>{{this.message}}</p>
+        </div>
+        <div class="box-rate-review">
+            <div class="rating star" data-type-rate="{{this.rate}}">
+                <div class="yellow">
+                    {{#forloop this.rate}}
+                    <i class="fa fa-star star-selected"></i>
+                    {{/forloop}}
+                </div>
+                <div class="grey">
+                    {{#forloop 5}}
+                    <i class="fa fa-star"></i>
+                    {{/forloop}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {{/each}}
+    <div class="clear"></div>
+</div>

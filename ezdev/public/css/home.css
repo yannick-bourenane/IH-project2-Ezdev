@@ -87,9 +87,9 @@
     height: 100%;
 }
 
-.info-teacher {
+/* .info-teacher {
     display: flex;
-}
+} */
 
 .btn-more-teachers {
     background-color: var(--second-color);

@@ -10,6 +10,7 @@
                 <th>Email</th>
                 <th>City</th>
                 <th>Phone</th>
+                <th>Reviews</th>
                 <th>edit</th>
                 <th>delete</th>
             </tr>
@@ -42,6 +43,9 @@
                 </td>
                 <td>
                     {{this.phone}}
+                </td>
+                <td>
+                    <a href="/admin/teachers/reviews/{{this._id}}">{{this.id_reviews.length}}</a>
                 </td>
                 <td>
                     <a class="fas fa-pen" href="/auth/edit/{{this._id}}"></a>
