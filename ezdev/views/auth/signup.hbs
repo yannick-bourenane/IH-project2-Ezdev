@@ -1,3 +1,8 @@
+{{#if isTeacher}}
+<script type="module">
+    document.getElementById('role_teacher').click();
+</script>
+{{/if}}
 <form method="post" action="signup" class="form" enctype="multipart/form-data">
     <h1 class="title">Sign-up</h1>
     <div class="radios">
@@ -35,7 +40,9 @@
     <div id="teacher_inputs">
         <label for="price">Price (€/h)</label>
         <input class="input" name="price" id="price" type="number" value="" placeholder="hourly rate" disabled>
-        <label for="id_languages">Languages</label>
+        <label for="description">Describe yourself</label>
+        <textarea name="description" id="" cols="30" rows="10"></textarea>
+        <label for="id_languages">Languages you can teach</label>
         <div id="languages">
             {{#each languages}}
             <div class="language_logo" title="{{this.name}}">

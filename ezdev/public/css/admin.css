@@ -30,7 +30,7 @@ table img.avatar {
 }
 
 #admin_menu li a:hover {
-    color: orange;
+    color: var(--second-color);
 }
 
 #admin_menu {

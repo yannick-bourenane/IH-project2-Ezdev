@@ -1,16 +1,14 @@
 <nav>
     <div class="wrapper">
         <div id="menu-flex">
-            <div id="logo-ezdev">
-                <a href="/home"><span>EZDEV</span></a>
-            </div>
+            {{> logo}}
             <div id="menu">
                 <ul>
-                    <a href="#">
+                    <a href="/auth/signup/teacher">
                         <li>BECOME A TEACHER</li>
                     </a>
-                    <a href="#">
-                        <li>LEARN AN IT LANGUAGE</li>
+                    <a href="/teachers">
+                        <li>FIND YOUR TEACHER</li>
                     </a>
                     {{#unless isLoggedIn}}
                     <a href="/auth/signin">

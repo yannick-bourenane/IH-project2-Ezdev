@@ -16,6 +16,15 @@ router.get('/signup', (req, res, next) => {
         })
     }).catch(dbErr => next(dbErr))
 })
+router.get('/signup/:teacher', (req, res, next) => {
+    languageModel.find().then(languages => {
+        res.render("auth/signup", {
+            languages: languages,
+            isTeacher: true,
+            js: ['form']
+        })
+    }).catch(dbErr => next(dbErr))
+})
 
 router.post('/signup', uploader.single('avatar'), (req, res, next) => {
     const user = req.body;
@@ -39,6 +48,7 @@ router.post('/signup', uploader.single('avatar'), (req, res, next) => {
                 user.password = hash;
 
                 if (req.file) user.avatar = req.file.secure_url
+
                 userModel.create(user).then(dbRes => {
                     req.flash("success", "account created !");
                     res.redirect('/auth/signup')

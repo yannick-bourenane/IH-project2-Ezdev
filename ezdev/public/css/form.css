@@ -4,7 +4,7 @@ form.form {
     width: 500px;
     min-height: 300px;
     border-radius: 30px;
-    color: #092e52;
+    color: var(--main-color);
     padding: 25px;
     margin: 0 auto;
 }
@@ -80,11 +80,11 @@ form.form #teacher_inputs i {
 }
 
 form.form #teacher_inputs .language_logo:hover i {
-    color: orange;
+    color: var(--second-color);
 }
 
 form.form #teacher_inputs .selected i {
-    color: orange;
+    color: var(--second-color);
     text-shadow: 1px 1px 1px #666;
 }
 

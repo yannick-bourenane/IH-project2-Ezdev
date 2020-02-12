@@ -3,11 +3,11 @@
 /** navbar */
 
 nav {
-    height: 50px;
-    background-color: #092e52;
+    height: 60px;
+    background-color: var(--main-color);
 }
 
-#logo-ezdev {
+.logo-ezdev {
     display: flex;
     align-items: center;
     font-size: 30px;
@@ -20,7 +20,7 @@ nav {
 
 #menu-flex {
     display: flex;
-    height: 50px;
+    height: 60px;
 }
 
 #menu {
@@ -47,9 +47,26 @@ header nav ul {
     align-items: center;
     height: 50px;
     background-color: white;
-    color: #092e52
+    color: var(--main-color)
 }
 
 #menu .fa-user-circle {
+    margin-right: 5px;
+}
+
+.logo-ezdev {
+    margin-top: 5px;
+    font-size: 21px;
+    line-height: 100%;
+}
+
+.logo-ezdev span {
+    text-shadow: 4px 0 0 var(--second-color);
+    font-size: 35px;
+    /* text-shadow: 1px 1px 0px var(--second-color); */
+    font-weight: bold;
+    position: relative;
+    left: -1px;
+    display: inline-block;
     margin-right: 5px;
 }

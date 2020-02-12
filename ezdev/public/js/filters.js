@@ -2,7 +2,7 @@ import langClick from './languageClick.js'
 import service from './APIHandler.js';
 
 const languages = document.querySelectorAll('.language_list_item');
-const teachersContainer = document.getElementById('teachers_container')
+const teachersContainer = document.getElementById('boxes-teacher')
 let filteredTeachers;
 
 langClick(languages)

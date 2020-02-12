@@ -12,7 +12,7 @@ aside#filters {
 }
 
 aside#filters h3 {
-    color: orange;
+    color: var(--second-color);
 }
 
 aside#filters ul {
@@ -33,7 +33,7 @@ aside#filters ul li label {
 }
 
 aside#filters ul li.selected {
-    color: orange;
+    color: var(--second-color);
 }
 
 aside .filter_box {
