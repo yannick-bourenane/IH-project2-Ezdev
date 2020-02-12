@@ -45,9 +45,10 @@ router.get('/teacher/reviews/:id', (req, res) => {
         .then(dbRes => {
             reviewModel.find()
             .then(dbRes2 => {
-                res.render("partials/review", {
+                res.render("review", {
                     teacher: dbRes,
-                    review: dbRes2
+                    review: dbRes2,
+                    js: ['review']
                 });
             })
             .catch(dbErr => console.log(dbErr));

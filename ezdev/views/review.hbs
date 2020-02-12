@@ -7,13 +7,13 @@
     </div>
 
     <div class="boxes-review">
-        {{#each teacher.id_reviews}}
+        {{#each teacher.id_reviews }}
         <div class="box-review">
             <div class="box-message-review">
                 <p>{{this.message}}</p>
             </div>
             <div class="box-rate-review">
-                <span>{{this.rate}}</span>
+                <div class="rating" data-type-rate="{{this.rate}}">{{this.rate}}</div>
             </div>
         </div>
         {{/each}}

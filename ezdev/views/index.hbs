@@ -38,9 +38,11 @@
                         <div class="teacher-name">
                             <span>{{this.firstname}}</span>
                         </div>
+                        {{#each teacher.id_review}}
                         <div class="teacher-rate">
-                            <span>5 étoiles</span>
+                            <span class="rate">{{this.rate}}</span>
                         </div>
+                        {{/each}}
                     </div>
                 </div>
             </a>

@@ -11,7 +11,13 @@ const reviewSchema = new Schema({
     message: {
         type: String,
         maxlength: 120
-    }
+    },
+    averageRate: {
+        type: Number,
+        min: 0,
+        max: 5
+    },
+
 });
 
 const reviewModel = mongoose.model('Review', reviewSchema);
