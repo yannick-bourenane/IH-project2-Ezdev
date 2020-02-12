@@ -1,0 +1,21 @@
+{
+  "name": "IH-project2-Ezdev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd ezdev && npm install && node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PierreEtryhard/IH-project2-Ezdev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PierreEtryhard/IH-project2-Ezdev/issues"
+  },
+  "homepage": "https://github.com/PierreEtryhard/IH-project2-Ezdev#readme"
+}
