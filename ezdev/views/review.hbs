@@ -18,4 +18,23 @@
         </div>
         {{/each}}
     </div>
+
+    <form action="/teacher/reviews/{{teacher._id}}" method="post">
+        <div class="section-add-review">
+            <span>Give the teacher a rate</span>
+            <div id="rate-review">
+                <input type="hidden" name="rate" id="rate-teacher" value=""><div class="star" data-type-rate="1"><i class="fas fa-star"></i></div>
+                    <div class="star" data-type-rate="2"><i class="fas fa-star"></i></div>
+                    <div class="star" data-type-rate="3"><i class="fas fa-star"></i></div>
+                    <div class="star" data-type-rate="4"><i class="fas fa-star"></i></div>
+                    <div class="star" data-type-rate="5"><i class="fas fa-star"></i></div>
+            </div>
+            <div id="message-review">
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="Type your feedback here"></textarea>
+            </div>
+            <div id="btn-update-review">
+                <button id="btn-review" type="submit">SEND A FEEDBACK</button>
+            </div>
+        </div>
+    </form>
 </div>

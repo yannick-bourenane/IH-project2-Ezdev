@@ -1,0 +1,16 @@
+.star{
+    color:lightgrey;
+}
+
+.star.star-selected {
+    color: orange;
+}
+
+.star i:hover {
+    color: orange;
+    cursor: pointer
+}
+
+.star i {
+    color: inherit;
+}
