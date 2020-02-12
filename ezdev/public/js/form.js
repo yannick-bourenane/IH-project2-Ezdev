@@ -1,3 +1,5 @@
+import langClick from './languageClick.js'
+
 const roleTeacher = document.getElementById('role_teacher');
 const roleStudent = document.getElementById('role_student');
 const teacherInputs = document.getElementById('teacher_inputs')
@@ -26,9 +28,4 @@ roleStudent.oninput = () => {
     })
 
 }
-languages.forEach(language => {
-    language.onclick = () => {
-        language.classList.toggle('selected')
-        language.querySelector('input[type="hidden"]').toggleAttribute('disabled')
-    }
-})
+langClick(languages);

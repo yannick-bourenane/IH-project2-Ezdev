@@ -11,6 +11,9 @@ function countAverage() {
     return avgRate = sum / rates.length;
 }
 
+function displayAverage() {
+    
+}
 
 
 

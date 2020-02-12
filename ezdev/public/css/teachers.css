@@ -1,0 +1,55 @@
+/* FILTERS */
+#page_teachers {
+    display: flex;
+    justify-content: space-between;
+}
+
+aside#filters {
+    width: 15%;
+    padding: 25px;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+aside#filters h3 {
+    color: orange;
+}
+
+aside#filters ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+aside#filters ul li {
+    font-size: 35px;
+    padding: 0 10px;
+    width: 50%;
+    text-align: center;
+}
+
+aside#filters ul li label {
+    cursor: pointer;
+}
+
+aside#filters ul li.selected {
+    color: orange;
+}
+
+aside .filter_box {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+aside #price_output {
+    font-weight: bold;
+}
+
+aside .grey {
+    color: #666;
+}
+
+#teachers_list {
+    width: 82%;
+}

@@ -90,6 +90,9 @@ app.use("/", index);
 const teachers = require("./routes/public/teachers");
 app.use("/", teachers);
 
+const filters = require("./routes/public/filters");
+app.use("/filters/", filters);
+
 const admin = require("./routes/private/admin");
 app.use("/admin/", admin);
 
