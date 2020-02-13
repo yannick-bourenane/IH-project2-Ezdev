@@ -6,6 +6,10 @@
         <div class="section-left-teacher">
             <div id="info-img-teacher">
                 <img src="{{teacher.avatar}}" alt="avatar">
+                <span class="teacher-price">{{teacher.price}}€/h</span>
+            </div>
+            <div class="contact-teacher">
+                <button id="btn-contact-teacher">CONTACT THE TEACHER</button>
             </div>
         </div>
         <div class="section-right-teacher">
@@ -23,8 +27,8 @@
                 <p>{{teacher.description}}</p>
             </div>
 
-            <h2>What I teach</h2>
             <div class="info-languages-teacher">
+            <h2>What I teach</h2>
                 <ul>
                     {{#each teacher.id_languages}}
                     <li>
@@ -35,11 +39,7 @@
                     </li>
                     {{/each}}
                 </ul>
-            </div>
-
-            <div class="contact-teacher">
-                <button id="btn-contact-teacher">CONTACT THE TEACHER</button>
-            </div>
+            </div>          
         </div>
     </div>
     <hr>
