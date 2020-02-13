@@ -14,4 +14,28 @@ router.post('/price', (req, res, next) => {
     }).catch(dbErr => next(dbErr))
 })
 
+router.post('/language', (req, res, next) => {
+    if(req.body.languages.length !== 0) {
+    userModel.find({
+        id_languages: {
+            $all : req.body.languages
+        }
+    }).populate("id_languages")
+    .populate("id_reviews")
+    .then(apiRes => {
+        res.json(apiRes)
+    })
+    .catch(dbErr => next(dbErr));
+    } else {
+        userModel.find({role: {
+            $eq: "teacher"
+        }}).populate("id_languages")
+        .populate("id_reviews")
+        .then(apiRes => {
+            res.json(apiRes)
+        })
+        .catch(dbErr => next(dbErr));
+    }
+});
+
 module.exports = router;
