@@ -65,6 +65,14 @@ function displayFiltered(arr) {
                 </div>
             </li>`
         })
+        let teacherRateGrey = "";
+        for (let i = 0; i < 5; i++) {
+            teacherRateGrey += `<i class="fa fa-star"></i> `;
+        }
+        let teacherRateYellow = "";
+        for (let i = 0; i < teacher.averageRate; i++) {
+            teacherRateYellow += `<i class="fa fa-star star-selected"></i> `;
+        }
         teachersContainer.innerHTML +=
             `<a href="/teacher/${teacher._id}">
                 <div class="box-same-teacher">
@@ -77,7 +85,12 @@ function displayFiltered(arr) {
                         </div>
         
                         <div class="box-rate-same">
-                            
+                            <div class="box-rate-review">
+                                <div class="rating star">
+                                <div class="yellow">${teacherRateYellow}</div>
+                                <div class="grey">${teacherRateGrey}</div>
+                                </div>
+                            </div>
                         </div>
                         <div class="box-lg-same">
                             <ul>` + teacherLanguages + `</ul>
@@ -113,10 +126,6 @@ function updateLanguage() {
     filterByLanguages(arrLanguages)
 };
 
-<<<<<<< HEAD
-
-
-=======
 function filterByRate(rate) {
     service
         .post("/filters/rate", {
@@ -135,4 +144,3 @@ function updateRate() {
     console.log('oyo')
     filterByRate(inputRate.value)
 }
->>>>>>> 56f4fecb58d5673144b220d3e8f770c92476232e
