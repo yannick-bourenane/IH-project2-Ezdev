@@ -7,4 +7,5 @@ const langClick = function languageClick(nodelist,cb) {
         }
     })
 }
+
 export default langClick;

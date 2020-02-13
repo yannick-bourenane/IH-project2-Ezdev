@@ -1,12 +1,16 @@
-import langClick from './languageClick.js'
+import langClick from './languageClick.js';
 import service from './APIHandler.js';
 
 const languages = document.querySelectorAll('.language_list_item');
-const teachersContainer = document.getElementById('boxes-teacher')
+const teachersContainer = document.getElementById('boxes-teacher');
+
 let filteredTeachers;
 let filteredLanguages;
+let filteredRates;
 
-console.log(languages)
+const rates = document.querySelectorAll("i");
+console.log(rates);
+
 langClick(languages,updateLanguage)
 
 
@@ -106,3 +110,6 @@ function updateLanguage() {
     console.log(arrLanguages);
     filterByLanguages(arrLanguages)
 };
+
+
+
