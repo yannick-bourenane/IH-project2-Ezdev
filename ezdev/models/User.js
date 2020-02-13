@@ -52,7 +52,7 @@ const userSchema = new Schema({
     },
     averageRate: {
         type: Number,
-        min: 0,
+        min: 1,
         max: 5
     },
 });

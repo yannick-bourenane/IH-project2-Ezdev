@@ -14,8 +14,13 @@ let priceOutput = document.getElementById("price_output");
 let inputRange = document.querySelector(".range");
 let inputRate = document.getElementById("rate-teacher")
 
+let ajaxArr = {
+    languages: [],
+    price: null,
+    rate: null,
+}
+
 langClick(languages, updateLanguage)
-console.log(rateClick)
 rateClick(stars, updateRate)
 
 
@@ -28,7 +33,7 @@ function updatePriceRange() {
     filterByPrice(temp)
 };
 
-function filterByPrice(price) {
+/* function filterByPrice(price) {
     service
         .post("/filters/price", {
             price
@@ -40,8 +45,33 @@ function filterByPrice(price) {
         })
         .catch(apiErr => console.log(apiErr));
     return filteredTeachers
+} */
+
+function filterByLanguages(arr) {
+    ajaxArr.languages = arr;
+    sendfilters()
 }
 
+function filterByPrice(price) {
+    ajaxArr.price = Number(price);
+    sendfilters()
+}
+
+function filterByRate(rate) {
+    ajaxArr.rate = Number(rate);
+    sendfilters()
+}
+
+function sendfilters() {
+    service
+        .post("/filters/", ajaxArr)
+        .then(apiRes => {
+            filteredTeachers = apiRes.data;
+            console.log('wut----------', filteredTeachers)
+            displayFiltered(filteredTeachers)
+        })
+        .catch(apiErr => console.log('wat----------', apiErr));
+}
 // function ratesAverage(arr) {
 //     return Math.round(arr.reduce((acc, cValue) => acc += cValue, 0) / arr.length * 10) / 10
 // }
@@ -102,7 +132,7 @@ function displayFiltered(arr) {
 }
 
 //languages filters
-function filterByLanguages(languages) {
+/* function filterByLanguages(languages) {
     service
         .post("/filters/language", {
             languages
@@ -111,9 +141,9 @@ function filterByLanguages(languages) {
             filteredLanguages = apiRes.data;
             displayFiltered(filteredLanguages)
         })
-        .catch(apiErr => console.log("hey", apiErr));
+        .catch(apiErr => console.log(apiErr));
     return filteredLanguages;
-}
+} */
 
 function updateLanguage() {
     let arrLanguages = [];
@@ -122,25 +152,22 @@ function updateLanguage() {
             arrLanguages.push(language.querySelector('input[type="hidden"]').getAttribute("data-tag-id"));
         }
     })
-    console.log(arrLanguages);
     filterByLanguages(arrLanguages)
 };
 
-function filterByRate(rate) {
+/* function filterByRate(rate) {
     service
         .post("/filters/rate", {
             rate
         })
         .then(apiRes => {
-            console.log(apiRes)
             filteredRate = apiRes.data;
             displayFiltered(filteredRate)
         })
-        .catch(apiErr => console.log("ho", apiErr));
+        .catch(apiErr => console.log(apiErr));
     return filteredRate;
-}
+} */
 
 function updateRate() {
-    console.log('oyo')
     filterByRate(inputRate.value)
 }

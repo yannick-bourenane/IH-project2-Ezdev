@@ -10,8 +10,6 @@ function capitalizeFLetter(value) {
 }
 
 router.get("/teachers", (req, res, next) => {
-    console.log(req.query.language)
-
     if (req.query.language) {
         const languageQuery = capitalizeFLetter(req.query.language);
         languageModel.find().then(languages => {
@@ -19,7 +17,6 @@ router.get("/teachers", (req, res, next) => {
                 languages.forEach(element => {
                     if (languageQuery == element.name) filter.push(element._id);
                 })
-                console.log(filter)
                 userModel
                     .find({
                         $and: [{
@@ -36,7 +33,6 @@ router.get("/teachers", (req, res, next) => {
                     })
                     .populate("id_languages")
                     .then(dbRes => {
-                        //console.log(dbRes, "--------------------------")
                         const arrPrice = [...dbRes];
                         const minPrice = Math.min.apply(
                             Math,
@@ -59,7 +55,6 @@ router.get("/teachers", (req, res, next) => {
             .catch(dbErr => next(dbErr));
     } else {
         languageModel.find().then(languages => {
-                console.log(languages)
                 userModel
                     .find({
                         role: {
@@ -133,7 +128,7 @@ router.get("/teacher/:id", (req, res) => {
 
 module.exports = router;
 
-router.get("/teacher/reviews/:id", (req, res) => {
+router.get("/teacher/reviews/:id", (req, res, next) => {
     userModel
         .findById(req.params.id)
         .populate("id_reviews")
@@ -147,7 +142,7 @@ router.get("/teacher/reviews/:id", (req, res) => {
                         js: ["review", "addReview"]
                     });
                 })
-                .catch(dbErr => console.log(dbErr));
+                .catch(dbErr => next(dbErr));
         })
         .catch(dbErr => console.error(dbErr));
 });

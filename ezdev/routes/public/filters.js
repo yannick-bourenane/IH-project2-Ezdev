@@ -4,7 +4,7 @@ const userModel = require("../../models/User");
 const languageModel = require("../../models/Language");
 const reviewModel = require("../../models/Review");
 
-router.post('/price', (req, res, next) => {
+/* router.post('/price', (req, res, next) => {
     userModel.find({
         price: {
             $lte: req.body.price
@@ -49,6 +49,37 @@ router.post('/rate', (req, res, next) => {
         console.log(apiRes)
         res.json(apiRes)
     }).catch(dbErr => next(dbErr))
+}) */
+
+router.post('/', (req, res, next) => {
+    const user = req.body;
+
+    var query = {};
+    query.role = {
+        $eq: "teacher"
+    }
+    if (user.languages.length !== 0) {
+        query.id_languages = {
+            $all: user.languages
+        };
+    }
+    if (user.rate) {
+        query.averageRate = {
+            $gte: user.rate
+        };
+    }
+    if (user.price) {
+        query.price = {
+            $lte: user.price
+        }
+    }
+    console.log(query)
+    userModel.find({
+        $and: [query]
+    }).populate("id_languages").populate("id_reviews").then(apiRes => {
+        console.log(apiRes)
+        res.json(apiRes)
+    }).catch(dbErr => next(dbErr));
 })
 
 module.exports = router;
