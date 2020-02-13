@@ -1,3 +1,4 @@
+require("dotenv").config();
 const languageModel = require('../models/Language')
 const mongoose = require('mongoose')
 
@@ -37,7 +38,7 @@ const languagesList = [{
 }]
 async function pushSeed() {
     await mongoose
-        .connect('mongodb://localhost/ezdev', {
+        .connect(process.env.MONGO_URI, {
             useNewUrlParser: true
         })
         .then(x => {
