@@ -78,3 +78,30 @@ button {
     background: #d4edda;
     box-shadow: -0.3px 0.1px 2.4px 0.1px #216136;
 }
+
+@media screen and (max-width: 640px) {
+    .wrapper {
+        padding: 0 10px;
+    }
+
+    .wrapper,
+    #menu,
+    #menu ul,
+    .search-bar input {
+        width: 100%;
+    }
+
+    #menu {
+        margin-left: 10px;
+    }
+
+
+    .info-ent,
+    .footer-right {
+        flex-direction: column;
+    }
+
+    #menu ul {
+        font-size: 14px;
+    }
+}

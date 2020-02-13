@@ -77,7 +77,7 @@
 .teacher-img,
 .box-same-teacher {
     overflow: hidden;
-    min-height: 350px;
+    /*     min-height: 350px; */
 }
 
 .teacher-img img,

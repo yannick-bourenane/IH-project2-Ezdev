@@ -2,13 +2,15 @@
 #page_teachers {
     display: flex;
     justify-content: space-between;
+    margin-top: 40px;
 }
 
 aside#filters {
-    width: 15%;
+    width: 20%;
     padding: 25px;
     background-color: #f5f5f5;
     color: #333;
+    height: max-content;
 }
 
 aside#filters h3 {
@@ -16,15 +18,13 @@ aside#filters h3 {
 }
 
 aside#filters ul {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 
 aside#filters ul li {
     font-size: 35px;
     padding: 0 10px;
-    width: 50%;
     text-align: center;
 }
 
@@ -51,5 +51,30 @@ aside .grey {
 }
 
 #teachers_list {
-    width: 82%;
+    width: 75%;
+}
+
+.teacher-price {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    padding: 5px;
+    color: #FFF;
+    background-color: var(--main-color);
+}
+
+.box-img-same {
+    position: relative;
+}
+
+.info-teacher-same .box-rate-review {
+    width: 135px;
+    font-size: 20px;
+    margin: 0 auto;
+
+}
+
+input[type="range"] {
+    width: 100%;
 }

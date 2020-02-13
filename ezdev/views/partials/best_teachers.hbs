@@ -1,15 +1,29 @@
 <div id="boxes-teacher">
     {{#each teachers}}
     <a href="/teacher/{{this._id}}">
-        <div class="box-teacher">
-            <div class="teacher-img">
-                <img src="{{this.avatar}}" alt="best teachers">
+        <div class="box-same-teacher">
+            <div class="box-img-same">
+                <img src="{{this.avatar}}" alt="Picture of a teacher">
+                <span class="teacher-price">{{this.price}}€/h</span>
             </div>
-            <div class="info-teacher">
-                <div class="teacher-name">
-                    <span>{{this.firstname}}</span>
+
+            <div class="info-teacher-same">
+                <div class="box-name-same">
+                    <h3>{{this.firstname}} {{this.lastname}}</h3>
                 </div>
+
                 {{> average_review_each}}
+                <div class="box-lg-same">
+                    <ul>
+                        {{#each this.id_languages}}
+                        <li>
+                            <div id="box-logo-same" title="{{this.name}}">
+                                {{{this.logo}}}
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
             </div>
         </div>
     </a>
