@@ -42,10 +42,11 @@ router.post('/language', (req, res, next) => {
 
 router.post('/rate', (req, res, next) => {
     userModel.find({
-        rate: {
+        averageRate: {
             $gte: req.body.rate
         }
     }).populate("id_languages").populate("id_reviews").then(apiRes => {
+        console.log(apiRes)
         res.json(apiRes)
     }).catch(dbErr => next(dbErr))
 })

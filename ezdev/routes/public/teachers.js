@@ -144,7 +144,7 @@ router.get("/teacher/reviews/:id", (req, res) => {
                     res.render("reviews", {
                         teacher: dbRes,
                         review: dbRes2,
-                        js: ["review"]
+                        js: ["review", "addReview"]
                     });
                 })
                 .catch(dbErr => console.log(dbErr));
@@ -188,7 +188,7 @@ router.post("/teacher/reviews/:id", protectRoute, (req, res, next) => {
                         let averageRate = Number(totalRate / arrLength);
                         userModel
                             .findByIdAndUpdate(req.params.id, {
-                                averageRate: averageRate
+                                averageRate: Math.round(averageRate)
                             })
                             .then(dbRes => {
                                 res.redirect("back");

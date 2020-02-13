@@ -14,19 +14,5 @@ function countAverage() {
     return avgRate = sum / rates.length;
 }
 
-function colorStarOnClick() {
-    stars.forEach((star, i) => {
-        star.onclick = () => {
-            stars.forEach(element => element.classList.remove("star-selected"))
-            for (let j = 0; j <= i; j++) {
-                stars[j].classList.add("star-selected")
-            }
-            input.value = star.getAttribute("data-type-rate");
-        }
-    })
-}
-
-
-colorStarOnClick();
 countAverage();
 //addValueToName();
