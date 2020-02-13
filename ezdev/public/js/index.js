@@ -1,4 +1,5 @@
 const inputSearch = document.getElementById("search_language");
+const inputHidden = document.getElementById("id_language");
 const btnSearch = document.getElementById("btn_language");
 const langList = document.getElementById("languages_list");
 let allLangs;
@@ -34,8 +35,8 @@ inputSearch.oninput = () => {
         allLangs.forEach(lang => {
             let getText = lang.textContent;
             lang.onclick = () => {
-                console.log('yo')
                 updateSearchInputValue(getText);
+                //updateHiddenInputValue("oyo")
                 showLangList(false);
             };
         });
@@ -66,6 +67,10 @@ function ArrayFiltered(arr) {
 
 function updateSearchInputValue(value) {
     inputSearch.value = value;
+}
+
+function updateHiddenInputValue(value) {
+    inputHidden.value = value;
 }
 
 function showOnFocus() {

@@ -3,39 +3,93 @@ const router = new express.Router();
 const userModel = require("../../models/User");
 const languageModel = require("../../models/Language");
 const reviewModel = require("../../models/Review");
+const protectRoute = require("../../middlewares/protectRoute")
+
+function capitalizeFLetter(value) {
+    return value[0].toUpperCase() + value.slice(1);
+}
 
 router.get("/teachers", (req, res, next) => {
-    languageModel
-        .find()
-        .then(languages => {
-            userModel
-                .find({
-                    role: {
-                        $eq: "teacher"
-                    }
+    console.log(req.query.language)
+
+    if (req.query.language) {
+        const languageQuery = capitalizeFLetter(req.query.language);
+        languageModel.find().then(languages => {
+                let filter = []
+                languages.forEach(element => {
+                    if (languageQuery == element.name) filter.push(element._id);
                 })
-                .populate("id_languages")
-                .then(dbRes => {
-                    const arrPrice = [...dbRes];
-                    const minPrice = Math.min.apply(
-                        Math,
-                        arrPrice.map(teacher => teacher.price)
-                    );
-                    const maxPrice = Math.max.apply(
-                        Math,
-                        arrPrice.map(teacher => teacher.price)
-                    );
-                    res.render("list_teachers", {
-                        fullteachers: dbRes,
-                        languages: languages,
-                        minPrice: minPrice,
-                        maxPrice: maxPrice,
-                        js: ["filters", "review"]
-                    });
-                })
-                .catch(dbErr => next(dbErr));
-        })
-        .catch(dbErr => next(dbErr));
+                console.log(filter)
+                userModel
+                    .find({
+                        $and: [{
+                                role: {
+                                    $eq: "teacher"
+                                }
+                            },
+                            {
+                                id_languages: {
+                                    $in: filter
+                                }
+                            }
+                        ]
+                    })
+                    .populate("id_languages")
+                    .then(dbRes => {
+                        //console.log(dbRes, "--------------------------")
+                        const arrPrice = [...dbRes];
+                        const minPrice = Math.min.apply(
+                            Math,
+                            arrPrice.map(teacher => teacher.price)
+                        );
+                        const maxPrice = Math.max.apply(
+                            Math,
+                            arrPrice.map(teacher => teacher.price)
+                        );
+                        res.render("list_teachers", {
+                            fullteachers: dbRes,
+                            languages: languages,
+                            minPrice: minPrice,
+                            maxPrice: maxPrice,
+                            js: ["filters", "review"]
+                        });
+                    })
+                    .catch(dbErr => next(dbErr));
+            })
+            .catch(dbErr => next(dbErr));
+    } else {
+        languageModel.find().then(languages => {
+                console.log(languages)
+                userModel
+                    .find({
+                        role: {
+                            $eq: "teacher"
+                        }
+                    })
+                    .populate("id_languages")
+                    .then(dbRes => {
+                        const arrPrice = [...dbRes];
+                        const minPrice = Math.min.apply(
+                            Math,
+                            arrPrice.map(teacher => teacher.price)
+                        );
+                        const maxPrice = Math.max.apply(
+                            Math,
+                            arrPrice.map(teacher => teacher.price)
+                        );
+                        res.render("list_teachers", {
+                            fullteachers: dbRes,
+                            languages: languages,
+                            minPrice: minPrice,
+                            maxPrice: maxPrice,
+                            js: ["filters", "review"]
+                        });
+                    })
+                    .catch(dbErr => next(dbErr));
+            })
+            .catch(dbErr => next(dbErr));
+    }
+
 });
 
 router.get("/teacher/:id", (req, res) => {
@@ -90,7 +144,7 @@ router.get("/teacher/reviews/:id", (req, res) => {
                     res.render("reviews", {
                         teacher: dbRes,
                         review: dbRes2,
-                        js: ["review"]
+                        js: ["review", "addReview"]
                     });
                 })
                 .catch(dbErr => console.log(dbErr));
@@ -98,46 +152,51 @@ router.get("/teacher/reviews/:id", (req, res) => {
         .catch(dbErr => console.error(dbErr));
 });
 
-router.post("/teacher/reviews/:id", (req, res, next) => {
-    const {
-        rate,
-        message
-    } = req.body;
-    reviewModel
-        .create({
+router.post("/teacher/reviews/:id", protectRoute, (req, res, next) => {
+    if (!req.body.rate || !req.body.message) {
+        req.flash("error", "Please fill all the fields");
+        return res.redirect("back");
+    } else {
+        const {
             rate,
             message
-        })
-        .then(review => {
-            userModel
-                .findByIdAndUpdate(
-                    req.params.id, {
-                        $push: {
-                            id_reviews: review._id
+        } = req.body;
+        reviewModel
+            .create({
+                rate,
+                message
+            })
+            .then(review => {
+                userModel
+                    .findByIdAndUpdate(
+                        req.params.id, {
+                            $push: {
+                                id_reviews: review._id
+                            }
+                        }, {
+                            new: true
                         }
-                    }, {
-                        new: true
-                    }
-                )
-                .populate("id_reviews")
-                .then(teacher => {
-                    const arr = [];
-                    teacher.id_reviews.forEach(element => {
-                        arr.push(element.rate);
-                    });
-                    let arrLength = arr.length;
-                    let totalRate = arr.reduce((acc, cValue) => (acc += cValue), 0);
-                    let averageRate = Number(totalRate / arrLength);
-                    userModel
-                        .findByIdAndUpdate(req.params.id, {
-                            averageRate: averageRate
-                        })
-                        .then(dbRes => {
-                            res.redirect("back");
-                        })
-                        .catch(dbErr => next(dbErr));
-                })
-                .catch(dbErr => next(dbErr));
-        })
-        .catch(dbErr => next(dbErr));
+                    )
+                    .populate("id_reviews")
+                    .then(teacher => {
+                        const arr = [];
+                        teacher.id_reviews.forEach(element => {
+                            arr.push(element.rate);
+                        });
+                        let arrLength = arr.length;
+                        let totalRate = arr.reduce((acc, cValue) => (acc += cValue), 0);
+                        let averageRate = Number(totalRate / arrLength);
+                        userModel
+                            .findByIdAndUpdate(req.params.id, {
+                                averageRate: Math.round(averageRate)
+                            })
+                            .then(dbRes => {
+                                res.redirect("back");
+                            })
+                            .catch(dbErr => next(dbErr));
+                    })
+                    .catch(dbErr => next(dbErr));
+            })
+            .catch(dbErr => next(dbErr));
+    }
 });

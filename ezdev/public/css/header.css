@@ -34,7 +34,7 @@ header nav {
 }
 
 header nav ul {
-    width: 500px;
+    width: 550px;
     justify-content: space-between;
     display: flex;
     align-items: center;
@@ -69,4 +69,17 @@ header nav ul {
     left: -1px;
     display: inline-block;
     margin-right: 5px;
+}
+
+#menu .admin_icon {
+    background-color: #FFF;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    padding-top: 2px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 18px;
+    color: var(--second-color);
+    margin-right: 10px;
 }

@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt")
 const userModel = require("../../models/User");
 const languageModel = require("../../models/Language");
 const uploader = require("../../config/cloudinary")
+const protectRoute = require("../../middlewares/protectRoute");
 
 router.get('/signin', (req, res) => {
     res.render("auth/signin");
@@ -64,56 +65,62 @@ router.post('/signin', (req, res, next) => {
     if (!user.email || !user.password) {
         req.flash("error", "wrong credentials");
         return res.redirect("/auth/signin");
+    } else {
+        userModel
+            .findOne({
+                email: user.email
+            })
+            .then(dbRes => {
+                if (!dbRes) {
+                    req.flash("error", "wrong credentials");
+                    return res.redirect("/auth/signin");
+                }
+                if (bcrypt.compareSync(user.password, dbRes.password)) {
+                    const {
+                        _doc: clone //_doc because of dbMongo Response
+                    } = {
+                        ...dbRes
+                    };
+
+                    delete clone.password;
+                    req.session.currentUser = clone;
+                    return res.redirect("/");
+                } else {
+                    req.flash("error", "wrong credentials");
+                    return res.redirect("/auth/signin");
+                }
+            })
+            .catch(next);
     }
-
-    userModel
-        .findOne({
-            email: user.email
-        })
-        .then(dbRes => {
-            if (!dbRes) {
-                req.flash("error", "wrong credentials");
-                return res.redirect("/auth/signin");
-            }
-            if (bcrypt.compareSync(user.password, dbRes.password)) {
-                const {
-                    _doc: clone //_doc because of dbMongo Response
-                } = {
-                    ...dbRes
-                };
-
-                delete clone.password;
-                req.session.currentUser = clone;
-                return res.redirect("/");
-            } else {
-                req.flash("error", "wrong credentials");
-                return res.redirect("/auth/signin");
-            }
-        })
-        .catch(next);
 })
 
 router.get("/edit/:id", (req, res, next) => {
-    userModel.findById(req.params.id)
-        .then(editUser => {
-            languageModel.find()
-                .then(languages => {
-                    res.render('auth/edit_profile', {
-                        editUser: editUser,
-                        languages: languages,
-                        js: ['form'],
+    if (res.locals.userID === req.params.id || res.locals.isAdmin) {
+        userModel.findById(req.params.id)
+            .then(editUser => {
+                languageModel.find()
+                    .then(languages => {
+                        res.render('auth/edit_profile', {
+                            editUser: editUser,
+                            languages: languages,
+                            js: ['form'],
+                        })
                     })
-                })
-                .catch(dbErr => next(dbErr))
-        })
-        .catch(dbErr => next(dbErr))
+                    .catch(dbErr => next(dbErr))
+            })
+            .catch(dbErr => next(dbErr))
+    } else {
+        res.redirect('/')
+    }
+
 })
-router.post("/edit/:id", uploader.single('avatar'), (req, res, next) => {
+router.post("/edit/:id", protectRoute, uploader.single('avatar'), (req, res, next) => {
 
     const user = req.body;
     if (!user.email || !user.firstname || !user.lastname || !user.role) {
         console.log(user.email, user.firstname, user.lastname, user.role)
         req.flash("error", "Fill all the required fields please.");
+        return res.redirect("back");
     } else {
         if (req.file) user.avatar = req.file.secure_url
         userModel.findByIdAndUpdate(req.params.id, user).then(dbRes => {

@@ -1,21 +1,23 @@
-import langClick from './languageClick.js';
+import langClick from './languageClick.js'
+import rateClick from './rateClick.js'
 import service from './APIHandler.js';
 
 const languages = document.querySelectorAll('.language_list_item');
-const teachersContainer = document.getElementById('boxes-teacher');
+const stars = document.querySelectorAll("#rate-review i")
 
+const teachersContainer = document.getElementById('boxes-teacher')
 let filteredTeachers;
 let filteredLanguages;
-let filteredRates;
-
-const rates = document.querySelectorAll("i");
-console.log(rates);
-
-langClick(languages,updateLanguage)
-
+let filteredRate;
 
 let priceOutput = document.getElementById("price_output");
 let inputRange = document.querySelector(".range");
+let inputRate = document.getElementById("rate-teacher")
+
+langClick(languages, updateLanguage)
+console.log(rateClick)
+rateClick(stars, updateRate)
+
 
 inputRange.oninput = updatePriceRange
 
@@ -111,5 +113,26 @@ function updateLanguage() {
     filterByLanguages(arrLanguages)
 };
 
+<<<<<<< HEAD
 
 
+=======
+function filterByRate(rate) {
+    service
+        .post("/filters/rate", {
+            rate
+        })
+        .then(apiRes => {
+            console.log(apiRes)
+            filteredRate = apiRes.data;
+            displayFiltered(filteredRate)
+        })
+        .catch(apiErr => console.log("ho", apiErr));
+    return filteredRate;
+}
+
+function updateRate() {
+    console.log('oyo')
+    filterByRate(inputRate.value)
+}
+>>>>>>> 56f4fecb58d5673144b220d3e8f770c92476232e
