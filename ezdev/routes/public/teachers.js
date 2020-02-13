@@ -5,38 +5,91 @@ const languageModel = require("../../models/Language");
 const reviewModel = require("../../models/Review");
 const protectRoute = require("../../middlewares/protectRoute")
 
+function capitalizeFLetter(value) {
+    return value[0].toUpperCase() + value.slice(1);
+}
+
 router.get("/teachers", (req, res, next) => {
-    languageModel
-        .find()
-        .then(languages => {
-            userModel
-                .find({
-                    role: {
-                        $eq: "teacher"
-                    }
+    console.log(req.query.language)
+
+    if (req.query.language) {
+        const languageQuery = capitalizeFLetter(req.query.language);
+        languageModel.find().then(languages => {
+                let filter = []
+                languages.forEach(element => {
+                    if (languageQuery == element.name) filter.push(element._id);
                 })
-                .populate("id_languages")
-                .then(dbRes => {
-                    const arrPrice = [...dbRes];
-                    const minPrice = Math.min.apply(
-                        Math,
-                        arrPrice.map(teacher => teacher.price)
-                    );
-                    const maxPrice = Math.max.apply(
-                        Math,
-                        arrPrice.map(teacher => teacher.price)
-                    );
-                    res.render("list_teachers", {
-                        fullteachers: dbRes,
-                        languages: languages,
-                        minPrice: minPrice,
-                        maxPrice: maxPrice,
-                        js: ["filters", "review"]
-                    });
-                })
-                .catch(dbErr => next(dbErr));
-        })
-        .catch(dbErr => next(dbErr));
+                console.log(filter)
+                userModel
+                    .find({
+                        $and: [{
+                                role: {
+                                    $eq: "teacher"
+                                }
+                            },
+                            {
+                                id_languages: {
+                                    $in: filter
+                                }
+                            }
+                        ]
+                    })
+                    .populate("id_languages")
+                    .then(dbRes => {
+                        //console.log(dbRes, "--------------------------")
+                        const arrPrice = [...dbRes];
+                        const minPrice = Math.min.apply(
+                            Math,
+                            arrPrice.map(teacher => teacher.price)
+                        );
+                        const maxPrice = Math.max.apply(
+                            Math,
+                            arrPrice.map(teacher => teacher.price)
+                        );
+                        res.render("list_teachers", {
+                            fullteachers: dbRes,
+                            languages: languages,
+                            minPrice: minPrice,
+                            maxPrice: maxPrice,
+                            js: ["filters", "review"]
+                        });
+                    })
+                    .catch(dbErr => next(dbErr));
+            })
+            .catch(dbErr => next(dbErr));
+    } else {
+        languageModel.find().then(languages => {
+                console.log(languages)
+                userModel
+                    .find({
+                        role: {
+                            $eq: "teacher"
+                        }
+                    })
+                    .populate("id_languages")
+                    .then(dbRes => {
+                        const arrPrice = [...dbRes];
+                        const minPrice = Math.min.apply(
+                            Math,
+                            arrPrice.map(teacher => teacher.price)
+                        );
+                        const maxPrice = Math.max.apply(
+                            Math,
+                            arrPrice.map(teacher => teacher.price)
+                        );
+                        res.render("list_teachers", {
+                            fullteachers: dbRes,
+                            languages: languages,
+                            minPrice: minPrice,
+                            maxPrice: maxPrice,
+                            js: ["filters", "review"]
+                        });
+                    })
+                    .catch(dbErr => next(dbErr));
+            })
+            .catch(dbErr => next(dbErr));
+    }
+
 });
 
 router.get("/teacher/:id", (req, res) => {

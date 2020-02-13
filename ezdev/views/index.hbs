@@ -9,6 +9,7 @@
                 <form method="get" action="/teachers" id="search_form">
                     <input autocomplete="off" id="search_language" type="text" name="language"
                         placeholder="React, PHP, SQL, Python...">
+                    {{!-- <input type="hidden" value="" id="id_language" /> --}}
                     <button id="btn_language" class="btn-search">SEARCH</button>
                     <div id="languages_list">
                         {{#each languages}}

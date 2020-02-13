@@ -95,10 +95,7 @@ router.post('/signin', (req, res, next) => {
 })
 
 router.get("/edit/:id", (req, res, next) => {
-    if (res.locals.userID !== req.params.id) {
-        req.flash("Error", "You can only edit your profile")
-        return res.redirect(`/auth/edit/${req.params.id}`)
-    } else {
+    if (res.locals.userID === req.params.id || res.locals.isAdmin) {
         userModel.findById(req.params.id)
             .then(editUser => {
                 languageModel.find()
@@ -112,7 +109,10 @@ router.get("/edit/:id", (req, res, next) => {
                     .catch(dbErr => next(dbErr))
             })
             .catch(dbErr => next(dbErr))
+    } else {
+        res.redirect('/')
     }
+
 })
 router.post("/edit/:id", protectRoute, uploader.single('avatar'), (req, res, next) => {
 
