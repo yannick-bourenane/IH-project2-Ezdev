@@ -1,8 +1,11 @@
 #info-img-teacher img {
-    /* height: 400px; */
+    height: 400px;
     box-shadow: 0px 1px 8px #999;
 }
 
+#info-img-teacher {
+    width: 300px;
+}
 
 
 #info-name-teacher {
