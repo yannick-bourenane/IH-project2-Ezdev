@@ -3,6 +3,7 @@ const router = new express.Router();
 const userModel = require("../../models/User");
 const languageModel = require("../../models/Language");
 const reviewModel = require("../../models/Review");
+const protectRoute = require("../../middlewares/protectRoute")
 
 router.get("/teachers", (req, res, next) => {
     languageModel
@@ -98,46 +99,51 @@ router.get("/teacher/reviews/:id", (req, res) => {
         .catch(dbErr => console.error(dbErr));
 });
 
-router.post("/teacher/reviews/:id", (req, res, next) => {
-    const {
-        rate,
-        message
-    } = req.body;
-    reviewModel
-        .create({
+router.post("/teacher/reviews/:id", protectRoute, (req, res, next) => {
+    if (!req.body.rate || !req.body.message) {
+        req.flash("error", "Please fill all the fields");
+        return res.redirect("back");
+    } else {
+        const {
             rate,
             message
-        })
-        .then(review => {
-            userModel
-                .findByIdAndUpdate(
-                    req.params.id, {
-                        $push: {
-                            id_reviews: review._id
+        } = req.body;
+        reviewModel
+            .create({
+                rate,
+                message
+            })
+            .then(review => {
+                userModel
+                    .findByIdAndUpdate(
+                        req.params.id, {
+                            $push: {
+                                id_reviews: review._id
+                            }
+                        }, {
+                            new: true
                         }
-                    }, {
-                        new: true
-                    }
-                )
-                .populate("id_reviews")
-                .then(teacher => {
-                    const arr = [];
-                    teacher.id_reviews.forEach(element => {
-                        arr.push(element.rate);
-                    });
-                    let arrLength = arr.length;
-                    let totalRate = arr.reduce((acc, cValue) => (acc += cValue), 0);
-                    let averageRate = Number(totalRate / arrLength);
-                    userModel
-                        .findByIdAndUpdate(req.params.id, {
-                            averageRate: averageRate
-                        })
-                        .then(dbRes => {
-                            res.redirect("back");
-                        })
-                        .catch(dbErr => next(dbErr));
-                })
-                .catch(dbErr => next(dbErr));
-        })
-        .catch(dbErr => next(dbErr));
+                    )
+                    .populate("id_reviews")
+                    .then(teacher => {
+                        const arr = [];
+                        teacher.id_reviews.forEach(element => {
+                            arr.push(element.rate);
+                        });
+                        let arrLength = arr.length;
+                        let totalRate = arr.reduce((acc, cValue) => (acc += cValue), 0);
+                        let averageRate = Number(totalRate / arrLength);
+                        userModel
+                            .findByIdAndUpdate(req.params.id, {
+                                averageRate: averageRate
+                            })
+                            .then(dbRes => {
+                                res.redirect("back");
+                            })
+                            .catch(dbErr => next(dbErr));
+                    })
+                    .catch(dbErr => next(dbErr));
+            })
+            .catch(dbErr => next(dbErr));
+    }
 });

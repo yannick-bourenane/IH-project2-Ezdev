@@ -4,6 +4,9 @@
             {{> logo}}
             <div id="menu">
                 <ul>
+                    {{#if isAdmin}}
+                    <a href="/admin" class="admin_icon" title="Admin panel"><i class="fas fa-user-lock"></i></a>
+                    {{/if}}
                     <a href="/auth/signup/teacher">
                         <li>BECOME A TEACHER</li>
                     </a>

@@ -58,6 +58,8 @@ function checkloginStatus(req, res, next) {
   res.locals.isLoggedIn = Boolean(req.session.currentUser);
   if (res.locals.isLoggedIn) {
     if (res.locals.user.role === 'teacher') res.locals.isTeacher = true;
+    if (res.locals.user.role === 'admin') res.locals.isAdmin = true;
+    if (res.locals.user._id) res.locals.userID = res.locals.user._id;
   }
   // access this value @ {{isLoggedIn}} in .hbs
   next(); // continue to the requested route
