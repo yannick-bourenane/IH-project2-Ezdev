@@ -4,8 +4,11 @@ import service from './APIHandler.js';
 const languages = document.querySelectorAll('.language_list_item');
 const teachersContainer = document.getElementById('boxes-teacher')
 let filteredTeachers;
+let filteredLanguages;
 
-langClick(languages)
+console.log(languages)
+langClick(languages,updateLanguage)
+
 
 let priceOutput = document.getElementById("price_output");
 let inputRange = document.querySelector(".range");
@@ -25,6 +28,7 @@ function filterByPrice(price) {
             price
         })
         .then(apiRes => {
+            console.log(apiRes);
             filteredTeachers = apiRes.data;
             displayFiltered(filteredTeachers)
         })
@@ -32,9 +36,9 @@ function filterByPrice(price) {
     return filteredTeachers
 }
 
-function ratesAverage(arr) {
-    return Math.round(arr.reduce((acc, cValue) => acc += cValue, 0) / arr.length * 10) / 10
-}
+// function ratesAverage(arr) {
+//     return Math.round(arr.reduce((acc, cValue) => acc += cValue, 0) / arr.length * 10) / 10
+// }
 
 function displayFiltered(arr) {
     teachersContainer.innerHTML = ``
@@ -77,3 +81,28 @@ function displayFiltered(arr) {
             </a>`
     })
 }
+
+//languages filters
+function filterByLanguages(languages) {
+    service
+        .post("/filters/language", {
+            languages
+        })
+        .then(apiRes => {
+            filteredLanguages = apiRes.data;
+            displayFiltered(filteredLanguages)
+        })
+        .catch(apiErr => console.log("hey", apiErr));
+    return filteredLanguages;
+}
+
+function updateLanguage() {
+    let arrLanguages = [];
+    languages.forEach(language => {
+        if (language.classList.contains("selected")) {
+            arrLanguages.push(language.querySelector('input[type="hidden"]').getAttribute("data-tag-id"));
+        }
+    })
+    console.log(arrLanguages);
+    filterByLanguages(arrLanguages)
+};
