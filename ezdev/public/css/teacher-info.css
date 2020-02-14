@@ -44,7 +44,7 @@
 .section-right-teacher {
     margin-left: 100px;
     flex: 1;
-    max-width: 500px;
+    /*     max-width: 500px; */
 }
 
 #btn-contact-teacher {
@@ -59,7 +59,7 @@
 
 .info-languages-teacher ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     font-size: 22px;
