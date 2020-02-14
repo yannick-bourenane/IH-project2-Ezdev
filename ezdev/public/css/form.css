@@ -62,7 +62,7 @@ form.form #teacher_inputs #languages {
     margin: 15px 0 25px;
     display: grid;
     text-align: center;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
     grid-column-gap: 15px;
     grid-row-gap: 15px;
 }

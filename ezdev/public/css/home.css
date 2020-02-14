@@ -117,13 +117,12 @@
 
 .boxes-lg {
     margin-top: 60px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-column-gap: 20px;
 }
 
 .box-lg {
-    width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -151,6 +150,7 @@
     padding: 5px;
     margin-top: -3px;
     position: absolute;
+    z-index: 50;
 }
 
 #languages_list.show {

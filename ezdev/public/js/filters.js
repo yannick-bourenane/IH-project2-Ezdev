@@ -108,6 +108,7 @@ function displayFiltered(arr) {
                 <div class="box-same-teacher">
                     <div class="box-img-same">
                         <img src="${teacher.avatar}" alt="${teacher.firstname} ${teacher.lastname}">
+                        <span class="teacher-price">${teacher.price}€/h</span>
                     </div>        
                     <div class="info-teacher-same">
                         <div class="box-name-same">

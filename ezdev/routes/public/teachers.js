@@ -114,7 +114,7 @@ router.get("/teacher/:id", (req, res) => {
                         }
                     ]
                 })
-                .populate("id_languages")
+                .populate("id_languages").limit(4)
                 .then(dbRes2 => {
                     res.render("one_teacher", {
                         teacher: dbRes,

@@ -79,7 +79,7 @@ button {
     box-shadow: -0.3px 0.1px 2.4px 0.1px #216136;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1280px) {
     .wrapper {
         padding: 0 10px;
     }
@@ -87,12 +87,14 @@ button {
     .wrapper,
     #menu,
     #menu ul,
-    .search-bar input {
+    #logo-footer,
+    #jumbotron form {
         width: 100%;
     }
 
     #menu {
         margin-left: 10px;
+        width: 82%
     }
 
 
@@ -103,5 +105,166 @@ button {
 
     #menu ul {
         font-size: 14px;
+    }
+
+    #menu a {
+        padding: 0 5px;
+    }
+
+    #menu ul a:last-of-type {
+        padding-right: 0;
+    }
+
+    #menu-flex .logo-ezdev {
+        width: 15%;
+    }
+
+    footer .logo-ezdev {
+        width: fit-content;
+    }
+
+    #marketing {
+        padding: 15px;
+    }
+
+    #marketing h1 {
+        font-size: 35px;
+        text-align: center;
+    }
+
+    #jumbotron {
+        min-height: 300px;
+        height: auto;
+    }
+
+
+    .search-bar input {
+        width: 75%;
+    }
+
+    .btn-search {
+        width: 23%;
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    #newsletter button {
+        font-size: 14px;
+        padding: 5px;
+        height: 37px;
+        position: relative;
+        top: 1px;
+    }
+
+    #boxes-teacher {
+        grid-row-gap: 35px;
+        align-items: center;
+    }
+
+    #boxes-teacher a {
+        display: flex;
+        justify-content: center;
+    }
+
+    .session-title {
+        text-align: center;
+    }
+
+    #languages_list {
+        max-width: 85%;
+    }
+
+    footer .logo-ezdev {
+        margin: 0 auto 25px;
+    }
+
+    .footer-right>div {
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    #copyright {
+        text-align: center;
+    }
+
+    form.form {
+        max-width: 100%;
+    }
+
+    #info-img-teacher img {
+        height: auto;
+        max-height: 300px;
+    }
+
+    .section-right-teacher {
+        margin-left: 50px;
+    }
+
+    #page_teachers {
+        flex-direction: column;
+    }
+
+    aside#filters,
+    #teachers_list {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:700px) {
+    #menu ul {
+        font-size: 13px;
+    }
+
+
+
+    .all-info {
+        flex-direction: column;
+    }
+
+    .section-right-teacher {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    .info-reviews-teacher {
+        width: 170px;
+        margin: 0 auto;
+    }
+
+    #info-name-teacher,
+    .info-languages-teacher {
+        text-align: center;
+    }
+
+    .info-reviews-teacher a {
+        display: block;
+        text-align: center;
+    }
+
+    .section-left-teacher {
+        flex: 1
+    }
+}
+
+@media screen and (max-width:900px) {
+    #form_review .review-title {
+        text-align: center;
+    }
+
+    #teacher_info {
+        flex-direction: column;
+    }
+
+    #teacher_info img {
+        width: 300px;
+        margin: 0 auto 25px;
+    }
+
+    .boxes-review {
+        width: 100%;
+    }
+
+    .box-review {
+        min-width: 80%;
     }
 }

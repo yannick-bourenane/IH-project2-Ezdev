@@ -9,7 +9,7 @@
                 <span class="teacher-price">{{teacher.price}}€/h</span>
             </div>
             <div class="contact-teacher">
-                <button id="btn-contact-teacher">CONTACT THE TEACHER</button>
+                <a href="mailto:{{teacher.email}}"><button id="btn-contact-teacher">CONTACT THE TEACHER</button></a>
             </div>
         </div>
         <div class="section-right-teacher">
@@ -28,7 +28,7 @@
             </div>
 
             <div class="info-languages-teacher">
-            <h2>What I teach</h2>
+                <h2>What I teach</h2>
                 <ul>
                     {{#each teacher.id_languages}}
                     <li>
@@ -39,7 +39,7 @@
                     </li>
                     {{/each}}
                 </ul>
-            </div>          
+            </div>
         </div>
     </div>
     <hr>

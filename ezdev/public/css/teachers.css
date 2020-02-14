@@ -19,7 +19,8 @@ aside#filters h3 {
 
 aside#filters ul {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    grid-column-gap: 20px;
 }
 
 aside#filters ul li {
