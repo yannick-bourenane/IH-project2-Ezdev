@@ -1,6 +1,6 @@
 # IH-project2-Ezdev
 
-Ironhack project developped in 1 week.
+Ironhack project developped in 1 week, working in collaboration.
 
 Concept : Put in relation students who wants to learn web languages  and teachers who already mastered it
 
